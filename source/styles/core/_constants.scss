@@ -1,0 +1,115 @@
+//----------------------------------------
+// Settings
+//----------------------------------------
+$jeet-gutter: 1.04;
+$url_prefix: "http://local.nhcollection.com";
+$url_prefix_full: "http://local.nhcollection.com/wp-content/themes/nh_collection";
+
+//----------------------------------------
+// Dimensions
+//----------------------------------------
+
+$BASE_FONT_SIZE: 16px !default;
+$BASE_LINE_HEIGHT: 26px !default;
+$REM_LINE_HEIGHT: $BASE_LINE_HEIGHT / $BASE_FONT_SIZE * 1rem;
+
+//----------------------------------------
+// Responsive
+//----------------------------------------
+
+$BREAKPOINT_XS: 440px;
+$BREAKPOINT_S: 640px;
+$BREAKPOINT_M: 960px;
+$BREAKPOINT_L: 1280px;
+$BREAKPOINT_XL: 1600px;
+
+//----------------------------------------
+// Colors
+//----------------------------------------
+
+$BLACK: #000000;
+$WHITE: #FFFFFF;
+
+$NH_RED_COLOR: #972c39;
+$NH_DARKRED_COLOR: #7b1529;
+$NH_BROWN_COLOR: #6e6259;
+
+$DEFAULT_LINK_COLOR: $WHITE;
+
+$COLOR_FACEBOOK: #3C5A9B;
+$COLOR_PINTEREST: #C42628;
+$COLOR_TUMBLR: #395E7E;
+$COLOR_GPLUS: #DD4B39;
+$COLOR_TWITTER: #2EACF0;
+$COLOR_LINKEDIN: #007BB6;
+
+//----------------------------------------
+// Font Weights
+//----------------------------------------
+
+$THIN: 100;
+$LIGHT: 200;
+$REGULAR: 400;
+$MEDIUM: 500;
+$BOLD: 700;
+$EXTRABOLD: 900;
+
+//----------------------------------------
+// Directions
+//----------------------------------------
+
+$LEFT: left;
+$RIGHT: right;
+$UP: up;
+$DOWN: down;
+
+
+//----------------------------------------
+// Alignments
+//----------------------------------------
+
+$CENTER: center;
+
+
+//----------------------------------------
+// Targets
+//----------------------------------------
+
+$INLINE: inline;
+$BEFORE: before;
+$AFTER: after;
+
+
+//----------------------------------------
+// Positions
+//----------------------------------------
+
+$RELATIVE: relative;
+$ABSOLUTE: absolute;
+$FIXED: fixed;
+
+
+//----------------------------------------
+// Z-index Depth
+//----------------------------------------
+
+$PRELOADER_Z: 200;
+$OVERLAY_Z: 150;
+$MENU_Z: 100;
+$LOADER_Z: 50;
+$COVER_Z: 25;
+$PAGE_Z: 10;
+
+
+//----------------------------------------
+// Animation
+//----------------------------------------
+$HIDE_DURATION: 0.2s;
+$HIDE_EASING: $easeOutSine;
+
+$SHOW_DURATION: 0.75s;
+$SHOW_EASING: $easeOutQuad;
+
+$BTN_HOVER_TRANSITION : .3s;
+$BTN_LABEL_TRANSITION : .25s;
+$BTN_TRANSITION_DELAY : .15s;

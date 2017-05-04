@@ -1,0 +1,137 @@
+header#header {
+	width: 100%;
+	max-width: 1016px;
+	margin: 0 auto;
+	border-radius: 0 10px 0 10px;
+	position: relative;
+	z-index: 1;
+
+	.main-menu {
+		height: 50px;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
+		/* Nota Desarrollo:  Me he decantado por los flexbox para dar estilos al menu,
+		debido a que no hay ningúna especificación que me haga trabajar pensando en
+		navegadores antiguos, y gracias a su comodidad y control a la hora de trabajar.*/
+
+		@media all and (max-width: $BREAKPOINT_S) {
+			height: auto;
+		}
+
+		li {
+
+			@media all and (min-width: $BREAKPOINT_S) {
+
+				&:first-of-type {
+					border-radius: 0 0 0 10px;
+				}
+				&:last-of-type {
+					border-radius: 0 10px 0 0;
+				}
+			}
+
+			&.nav-item {
+				flex: 1;
+				align-items: center;
+				border-right: 1px solid #000;
+				margin: 0 auto;
+				background: rgb(255,168,122); /* Old browsers */
+				background: linear-gradient(to bottom, rgba(255,168,122,1) 0%,rgba(255,0,0,1) 100%);
+				&:last-child {
+					border: none;
+				}
+
+				a {
+					text-decoration: none;
+					display: block;
+					text-align: center;
+					padding: 16px 0;
+
+					&:hover {
+						background-color: rgba(0,0,0,0.1);
+					}
+
+				}
+
+			}
+			&.login-section {
+				padding: 5px 10px;
+				background: rgb(217,224,33); /* Old browsers */
+				background: linear-gradient(to bottom, rgba(217,224,33,1) 0%,rgba(115,99,87,1) 100%);
+				.form-wrapper {
+					transition: opacity .3s linear;
+					input {
+						border: solid 1px $BLACK;
+						padding: 3px 5px;
+					}
+				}
+				&.signed-in {
+					.form-wrapper {
+						opacity: 0;
+					}
+				}
+			}
+			&.parent-nav {
+				.submenu {
+					height: 0px;
+					overflow: hidden;
+					position: relative;
+					background: rgb(255,168,122); /* Old browsers */
+					background: linear-gradient(to bottom, rgba(255,168,122,1) 0%,rgba(255,0,0,1) 100%);
+					ul {
+						padding: 5px 0;
+						li {
+
+							a {
+								padding: 3px 0;
+								text-align: left;
+								padding-left: 20px;
+							}
+						}
+					}
+					a.find-more,
+					a.find-less {
+						text-align: right;
+						color: $WHITE;
+						padding: 3px 10px;
+						width: auto;
+						&.hide {
+							display: none;
+						}
+					}
+
+				}
+				&:hover {
+					.submenu {
+						height: auto;
+					}
+				}
+			}
+
+
+			@media all and (max-width: $BREAKPOINT_S) {
+				&.nav-item {
+					width: 100%;
+					border-right: none;
+					border-bottom: 1px solid rgba(0,0,0,0.5);
+				}
+				&.login-section {
+					text-align: center;
+
+				}
+
+			}
+
+		}
+
+		/* Small screens */
+
+		@media all and (max-width: $BREAKPOINT_S) {
+			flex-direction: column;
+		}
+
+	}
+}

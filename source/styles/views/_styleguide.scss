@@ -1,0 +1,36 @@
+#nh-styleguide {
+
+	padding-bottom: 150px;
+
+	.content-wrapper {
+		width: 80%;
+		min-width: 900px;
+		margin: 0 auto;
+		// background-color: #CCC;
+		text-align: center;
+
+		.wrapper {
+			padding: 25px 10%;
+
+			hr {
+				width: 250px;
+			}
+
+			p {
+				margin: 10px 0;
+			}
+
+			#hamburger-icon {
+				margin: 25px auto 0;
+			}
+
+
+			// Style wrapper rollover
+			.rollover-wrapper-styleguide {
+				position: relative;
+				width: 100%;
+				max-width: 640px;
+			}
+		}
+	}
+}
