@@ -107,7 +107,29 @@
                   <div class="header-wrapper white">
                     <p class="navigation--header"><span class="pre">The</span><br />feelling<br /> collectors</p>
                   </div>
-                  <div class="overlay"></div>
+                  <div class="overlay-ribond"></div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="rollover-wrapper-styleguide">
+
+            <div class="overlay-element medium inverted">
+
+              <div class="full-container">
+                <div class="relative-wrapper">
+
+                  <div class="img-wrapper">
+                    <img src="http://placekitten.com/800/800" alt="example image">
+                  </div>
+                  <div class="header-wrapper white">
+                    <p class="navigation--header"><span class="pre">The</span><br />feelling<br /> collectors</p>
+                  </div>
+                  <div class="overlay-ribond"></div>
 
                 </div>
               </div>
