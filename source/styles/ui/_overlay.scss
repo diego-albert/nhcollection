@@ -27,6 +27,7 @@
 			left: -50%;
 			transform: skew(30deg);
 			background-color: $NH_DARKRED_COLOR;
+			mix-blend-mode: multiply;
 			opacity: 0.75;
 			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
 		}
@@ -157,8 +158,9 @@
 			top: 0;
 			left: -30%;
 			transform: skew(30deg);
-			background-color: $NH_DARKRED_COLOR;
-			opacity: 0.75;
+			background-color: $NH_RED_COLOR;
+			mix-blend-mode: multiply;
+			// opacity: 0.75;
 			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
 		}
 	}
