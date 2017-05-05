@@ -132,3 +132,72 @@
 	}
 
 }
+
+.hotel-item {
+	position: relative;
+	width: 169px;
+	display: block;
+
+	.anchor-wrapper {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.image-wrapper {
+		position: relative;
+		width: 100%;
+		padding-bottom: 100%;
+		background-color: #CCC;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: auto;
+		}
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 1;
+			width: 0%;
+			height: 100%;
+			top: 0;
+			left: -30%;
+			transform: skew(30deg);
+			background-color: $NH_DARKRED_COLOR;
+			opacity: 0.75;
+			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
+		}
+	}
+	.info-wrapper {
+		.caption {
+			color: $NH_BROWN_COLOR;
+			padding: 15px 0 10px 0;
+			margin: 0 !important;
+		}
+
+		hr.ribond {
+			width: 40px;
+			margin: 0 auto;
+			border: solid 1px $NH_RED_COLOR;
+			transition: width $BTN_HOVER_TRANSITION ease-in;
+		}
+	}
+
+	&:hover {
+		.image-wrapper {
+			&:before {
+				width: 160%;
+			}
+		}
+		.info-wrapper {
+			hr.ribond {
+				width: 20px;
+			}
+		}
+	}
+}

@@ -14,7 +14,7 @@
       <div class="wrapper">
 
         <h3>Typography</h3>
-        <hr>
+        <hr class="separator">
 
         <p class="highlight--text">highlight--text</p>
         <p class="highlight-medium-text">highlight-medium-text</p>
@@ -30,7 +30,7 @@
 
       <div class="wrapper">
         <h3>Buttons</h3>
-        <hr>
+        <hr class="separator">
 
         <button class="block-button"><span class="button-label">block-button</span></button>
         <p class="label-font">block button</p>
@@ -77,7 +77,7 @@
         <button class="block-button tag-button"><span class="label-font">#People</span></button>
         <p class="label-font">block-button tag-button</p>
 
-        <button id="hamburger-icon">
+        <button id="hamburger-icon" class="open">
           <span class="line line-1"></span>
           <span class="line line-2"></span>
           <span class="line line-3"></span>
@@ -89,7 +89,7 @@
 
       <div class="wrapper">
         <h3>Rollover</h3>
-        <hr>
+        <hr class="separator">
 
         <div class="wrapper">
 
@@ -138,6 +138,40 @@
 
           </div>
 
+        </div>
+
+      </div>
+
+
+      <div class="wrapper" style="background: #6e6259; color: #fff;">
+        <h3>List Styles</h3>
+        <hr class="separator">
+
+        <ul>
+          <li><p class="body-font">1 _ Perejil fresco</p></li>
+          <li><p class="body-font">2 _ 4 dientes de ajo</p></li>
+          <li><p class="body-font">3 _ Guindille fresca</p></li>
+        </ul>
+
+      </div>
+
+
+      <div class="wrapper">
+        <h3>Hotel Item</h3>
+        <hr class="separator">
+
+        <div class="hotel-item">
+          <a href="#">
+            <span class="anchor-wrapper">
+              <div class="image-wrapper">
+                <img src="http://placekitten.com/169/169" alt="">
+              </div>
+              <div class="info-wrapper">
+                <p class="caption">NH Collection<br /> Madrid<br /> Abascal</p>
+                <hr class="ribond">
+              </div>
+            </span>
+          </a>
         </div>
 
       </div>

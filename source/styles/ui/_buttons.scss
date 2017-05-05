@@ -177,6 +177,7 @@ $height-line: 2px;
 		left:0;
 		transition: all 0.4s;
 		overflow: hidden;
+		transition: all $BTN_LABEL_TRANSITION linear;
 		&.line-1 {
 		  top:0;
 		  &:after {
@@ -222,6 +223,20 @@ $height-line: 2px;
 			&:after {
 				left: 0;
 			}
+		}
+	}
+	&.open {
+		.line-2 {
+			transform: rotate(-45deg);
+			top: 50%;
+		}
+		.line-3 {
+			transform: rotate(45deg);
+			top: 50%;
+		}
+		.line-1,
+		.line-4 {
+			width: 0;
 		}
 	}
 }
