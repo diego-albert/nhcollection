@@ -7,13 +7,13 @@
   <?php wp_head(); ?>
 </head>
 
-<body>
-  <header>
-    <h1><?php bloginfo('name'); ?></h1>
-  </header>
+<body id="nh-collection">
+<!--   <header>
+    <h1><?php// bloginfo('name'); ?></h1>
+  </header> -->
 
-  <nav>
+<!--   <nav>
     <ul class="main-nav">
       <?php // wp_nav_menu( array( 'theme_location' => 'main_menu' ) ); ?>
     </ul>
-  </nav>
+  </nav> -->

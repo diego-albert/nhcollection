@@ -31,7 +31,7 @@ site.managers.AssetsManager.prototype._parse = function() {
 
   var that = this;
 
-  // // console.log(this.name, '_parse', $assetTags);
+  // console.log(this.name, '_parse', $assetTags);
 
   $assetTags.each(function(i, tag){
 
@@ -67,7 +67,7 @@ site.managers.AssetsManager.prototype.getAssetByID = function(id) {
 };
 
 site.managers.AssetsManager.prototype._imagesLoadedHandler = function(e) {
-  // // console.log(this.name, '_imagesLoadedHandler', e);
+  // console.log(this.name, '_imagesLoadedHandler', e);
 
   this.emit(el.core.events.event.ASSETS_LOADED, {
     // 'data': e.data

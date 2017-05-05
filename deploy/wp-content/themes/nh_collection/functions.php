@@ -18,8 +18,14 @@ add_action( 'init', 'my_menus' );
 function nhcollection_scripts() {
 
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), '0.1' );
-	// wp_enqueue_script( 'twentyfifteen-script', get_template_directory_uri() . '/assets/scripts/main.js', array( 'jquery' ), '20150330', true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array( 'jquery' ), '0.1', false );
 }
 add_action( 'wp_enqueue_scripts', 'nhcollection_scripts' );
+
+add_action( 'wp_default_scripts', function( $scripts ) {
+    if ( ! empty( $scripts->registered['jquery'] ) ) {
+        $scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, array( 'jquery-migrate' ) );
+    }
+} );
 
 ?>

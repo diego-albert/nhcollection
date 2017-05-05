@@ -1,132 +1,121 @@
 .overlay-element {
 	width: 100%;
+	height: 100%;
 	position: relative;
 	overflow: hidden;
 	&.medium {
+		height: 0;
 		padding-bottom: 84.25%;
 	}
-	&.big {
-
-	}
-
-	.full-container {
-		position: absolute;
+	.relative-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		width: 100%;
-		height: 100%;
 
-		.relative-wrapper {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 1;
+			width: 0%;
+			height: 100%;
+			top: 0;
+			left: -50%;
+			transform: skew(30deg);
+			background-color: $NH_DARKRED_COLOR;
+			opacity: 0.75;
+			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
+		}
+
+
+		.img-wrapper {
 			position: relative;
 			width: 100%;
 			height: 100%;
+			img {
+				width: auto;
+				height: auto;
+				min-width: 100%;
+				min-height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+		}
+
+		.header-wrapper {
+			position: absolute;
+			z-index: 2;
+			top: 50%;
+			left: 50%;
+			text-align: left;
+			transform: translate(-50%, -50%);
+
+			&.white {
+				color: $WHITE;
+			}
+		}
+
+		.overlay-ribond {
+			position: absolute;
 			top: 0;
 			left: 0;
-			right: 0;
-			bottom: 0;
-
-			&:before {
-				content: '';
-				display: block;
-				position: absolute;
-				z-index: 1;
-				width: 0%;
-				height: 100%;
-				top: 0;
-				left: -25%;
-				transform: skew(30deg);
-				background-color: $NH_DARKRED_COLOR;
-				opacity: 0.75;
-				transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
-			}
-
-
-			.img-wrapper {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				img {
-					width: auto;
-					height: auto;
-					min-width: 100%;
-					min-height: 100%;
-					position: absolute;
-					left: 50%;
-					top: 50%;
-					transform: translate(-50%,-50%);
-				}
-			}
-
-			.header-wrapper {
-				position: absolute;
-				z-index: 2;
-				top: 50%;
-				left: 50%;
-				text-align: left;
-				transform: translate(-50%, -50%);
-
-				&.white {
-					color: $WHITE;
-				}
-			}
-
-			.overlay-ribond {
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 2;
-				width: 50%;
-				padding-bottom: 50%;
-				background-image: url('#{$url_prefix_full}/assets/images/overlay-ribond.png');
-				background-size: 100% auto;
-				background-position: left top;
-				background-repeat: no-repeat;
-				transform: translate(-100%, -100%);
-				transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease-in-out;
-			}
-
+			z-index: 2;
+			width: 50%;
+			padding-bottom: 50%;
+			background-image: url('#{$url_prefix_full}/assets/images/overlay-ribond.png');
+			background-size: 100% auto;
+			background-position: left top;
+			background-repeat: no-repeat;
+			transform: translate(-100%, -100%);
+			transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease-in-out;
 		}
+
 	}
 
 	&:hover {
-		.full-container {
-			.relative-wrapper {
-				&:before {
-					width: 150%;
-				}
-				.overlay-ribond {
-					transform: translate(0%, 0%);
-				}
+		.relative-wrapper {
+			&:before {
+				width: 250%;
+			}
+			.overlay-ribond {
+				transform: translate(0%, 0%);
 			}
 		}
 	}
 
 	&.inverted {
-		.full-container {
-			.relative-wrapper {
-				&:before {
-					left: auto;
-					right: -25%;
-				}
-				.overlay-ribond {
-					top: auto;
-					bottom: 0;
-					left: auto;
-					right: 0;
-					transform: translate(100%, 100%) rotate(180deg);
-					transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease-in-out;
-				}
+		.relative-wrapper {
+			&:before {
+				left: auto;
+				right: -50%;
+			}
+			.overlay-ribond {
+				top: auto;
+				bottom: 0;
+				left: auto;
+				right: 0;
+				transform: translate(100%, 100%) rotate(180deg);
+				transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease-in-out;
 			}
 		}
 		&:hover {
-			.full-container {
-				.relative-wrapper {
-					.overlay-ribond {
-						transform: translate(0%, 0%) rotate(180deg);
-					}
+			.relative-wrapper {
+				.overlay-ribond {
+					transform: translate(0%, 0%) rotate(180deg);
 				}
+			}
+		}
+	}
+	&.no-ribond {
+		.relative-wrapper {
+			.overlay-ribond {
+				display: none;
 			}
 		}
 	}

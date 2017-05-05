@@ -7,14 +7,19 @@ site.views.Page = el.core.utils.class.extend(function(options){
   this.options = {};
   this.components = [];
 
+  // this.scrollManager = el.core.managers.scrollManager;
+
   $.extend(this.options, options);
+
 
   this.name = 'PageView';
   this.id = el.core.utils.uniqueId.get(this.name + '-');
 
   this.$el = this.options.$el;
 
-  this.$content = this.$el.find('#main-content');
+  this.$body = $('body');
+  this.$mainContent = this.$body.find('#main-content');
+  this.$footer = this.$body.find('footer');
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeHandler, this));
 
@@ -22,49 +27,51 @@ site.views.Page = el.core.utils.class.extend(function(options){
 
 site.views.Page.prototype.init = function(e) {
 
+  // initialise the default page
   this.initPage();
 
   return this;
 }
 
-site.views.Page.prototype.initPage = function(e) {
+site.views.Page.prototype.initPage = function() {
+
+  console.log('initPage', this.id);
 
   var that = this;
 
-  el.core.events.globalDispatcher.on(el.core.events.event.LOAD_SECTION, $.proxy(this._loadContent, this) );
-  el.core.events.globalDispatcher.once(el.core.events.event.APP_INIT, $.proxy(this._loadContent, this) );
+  // reset variables
 
-}
+  // create components
+  this.$el.find('[data-component]').each(function(i, tag) {
 
-site.views.Page.prototype._displayContent = function(data) {
+    var $tag = $(tag)
+    ;
 
-  this.$content.find('h1').text(data.title);
-  this.$content.find('.recommended-number').text(data.recommended);
-  this.$content.find('.body-content').html('');
-  this.$content.find('.images-wrapper').html('');
-
-  for (var i = 0; i < data.text.length; i++) {
-    this.$content.find('.body-content').append('<p class="body-font">'+data.text[i]+'</p>');
-  };
-
-  for (var i = 0; i < data.imgs.length; i++) {
-    this.$content.find('.images-wrapper').append('<img src="/assets/'+data.imgs[i].url+'" alt="'+data.imgs[i].alt+'"/>');
-    data.imgs[i]
-  };
-}
-
-site.views.Page.prototype._loadContent = function(data) {
-
-  var that = this,
-      url  = data.url;
-
-  $.ajax({
-    url : "http://local.doubleyou.com"+url,
-    dataType: "text",
-    success : function (data) {
-      var data = JSON.parse(data);
-      that._displayContent(data);
-    }
+    that.components.push(site.managers.componentsManager.createComponent($tag.data('component'), {
+      '$el': $tag
+    }));
   });
 
+
+  el.core.managers.layoutManager.resize();
+
+}
+
+site.views.Page.prototype.resize = function(size) {
+
+  for (var i = 0; i < this.components.length; i++) {
+    this.components[i].resize(size);
+  };
+
+  // if(this.watcher) {
+  //   this.watcher.resize(size);
+  // }
+  // if(this.parallax) {
+  //   this.parallax.resize(size);
+  // }
+}
+
+site.views.Page.prototype._resizeHandler = function(e) {
+
+  this.resize(e);
 }

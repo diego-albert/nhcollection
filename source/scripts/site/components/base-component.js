@@ -17,7 +17,7 @@ site.components.BaseComponent.prototype.destroy = function() {
 
 	this.$el.remove();
 
-	// console.log('BaseComponent.destroy', this.id);
+	console.log('BaseComponent.destroy', this.id);
 }
 
 site.components.BaseComponent.prototype.resize = function() {

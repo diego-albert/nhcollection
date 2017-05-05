@@ -1,0 +1,46 @@
+#nh-collection {
+
+	#homepage {
+		.homepage-mainmenu {
+			.homemenu-wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				.col {
+					position: relative;
+    			float: left;
+					width: 33.3%;
+					height: 100%;
+
+					.section-item {
+						display: block;
+						position: relative;
+						width: 100%;
+						height: 50%;
+
+						.brand-wrapper {
+							color: $NH_RED_COLOR;
+							text-align: center;
+							position: absolute;
+							width: 100%;
+							top: 45%;
+							left: 0;
+							transform: translateY(-50%);
+
+							img {
+								position: relative;
+								display: block;
+								width: 40%;
+								height: auto;
+								margin: 0 auto;
+								margin-bottom: 20px;
+							}
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+}

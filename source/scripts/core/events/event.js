@@ -21,7 +21,6 @@ el.core.events.event = {
   UPDATE                       : 'event.update',
 
   APP_INIT                     : 'event.app.init',
-  LOAD_SECTION                 : 'event.load.section',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };

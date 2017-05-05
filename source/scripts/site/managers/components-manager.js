@@ -12,7 +12,7 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
   function registerComponent(component) {
     components[component.id] = component;
 
-    // console.log('componentsManager.registerComponent', components);
+    console.log('componentsManager.registerComponent', components);
   }
 
   function unregisterComponent(component) {
@@ -40,12 +40,12 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
 
   function createComponent(key, options) {
 
-    try {
+    //try {
       var c = new site.components[dashToCamelCase(key)](options);
-    }
+    /*}
     catch(e) {
       console.log('ERROR, no component for key:', key, e);
-    }
+    }*/
 
     return c;
   }

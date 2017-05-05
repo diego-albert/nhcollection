@@ -1794,7 +1794,7 @@ return function (global, window, document, undefined) {
                 propertyValue = 0;
             }
 
-            if (Velocity.debug >= 2) // console.log("Get " + property + ": " + propertyValue);
+            if (Velocity.debug >= 2) console.log("Get " + property + ": " + propertyValue);
 
             return propertyValue;
         },
@@ -1853,7 +1853,7 @@ return function (global, window, document, undefined) {
                     if (IE <= 8) {
                         try {
                             element.style[propertyName] = propertyValue;
-                        } catch (error) { if (Velocity.debug) // console.log("Browser does not support [" + propertyValue + "] for [" + propertyName + "]"); }
+                        } catch (error) { if (Velocity.debug) console.log("Browser does not support [" + propertyValue + "] for [" + propertyName + "]"); }
                     /* SVG elements have their dimensional properties (width, height, x, y, cx, etc.) applied directly as attributes instead of as styles. */
                     /* Note: IE8 does not support SVG elements, so it's okay that we skip it for SVG animation. */
                     } else if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
@@ -1864,7 +1864,7 @@ return function (global, window, document, undefined) {
                         element.style[propertyName] = propertyValue;
                     }
 
-                    if (Velocity.debug >= 2) // console.log("Set " + property + " (" + propertyName + "): " + propertyValue);
+                    if (Velocity.debug >= 2) console.log("Set " + property + " (" + propertyName + "): " + propertyValue);
                 }
             }
 
@@ -2322,7 +2322,7 @@ return function (global, window, document, undefined) {
                     if (promiseData.promise) {
                         promiseData.rejecter(new Error(abortError));
                     } else {
-                        // console.log(abortError);
+                        console.log(abortError);
                     }
 
                     return getChain();
@@ -2586,7 +2586,7 @@ return function (global, window, document, undefined) {
                         element: element
                     };
 
-                    if (Velocity.debug) // console.log("tweensContainer (scroll): ", tweensContainer.scroll, element);
+                    if (Velocity.debug) console.log("tweensContainer (scroll): ", tweensContainer.scroll, element);
 
                 /******************************************
                    Tween Data Construction (for Reverse)
@@ -2664,7 +2664,7 @@ return function (global, window, document, undefined) {
                                     lastTweensContainer[lastTween].easing = opts.easing;
                                 }
 
-                                if (Velocity.debug) // console.log("reverse tweensContainer (" + lastTween + "): " + JSON.stringify(lastTweensContainer[lastTween]), element);
+                                if (Velocity.debug) console.log("reverse tweensContainer (" + lastTween + "): " + JSON.stringify(lastTweensContainer[lastTween]), element);
                             }
                         }
 
@@ -2820,7 +2820,7 @@ return function (global, window, document, undefined) {
                         /* Note: Since SVG elements have some of their properties directly applied as HTML attributes,
                            there is no way to check for their explicit browser support, and so we skip skip this check for them. */
                         if (!Data(element).isSVG && rootProperty !== "tween" && CSS.Names.prefixCheck(rootProperty)[1] === false && CSS.Normalizations.registered[rootProperty] === undefined) {
-                            if (Velocity.debug) // console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
+                            if (Velocity.debug) console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
 
                             continue;
                         }
@@ -3051,7 +3051,7 @@ return function (global, window, document, undefined) {
                             unitRatios.vwToPx = callUnitConversionData.vwToPx;
                             unitRatios.vhToPx = callUnitConversionData.vhToPx;
 
-                            if (Velocity.debug >= 1) // console.log("Unit ratios: " + JSON.stringify(unitRatios), element);
+                            if (Velocity.debug >= 1) console.log("Unit ratios: " + JSON.stringify(unitRatios), element);
 
                             return unitRatios;
                         }
@@ -3158,7 +3158,7 @@ return function (global, window, document, undefined) {
                             easing: easing
                         };
 
-                        if (Velocity.debug) // console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
+                        if (Velocity.debug) console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
                     }
 
                     /* Along with its property data, store a reference to the element itself onto tweensContainer. */
