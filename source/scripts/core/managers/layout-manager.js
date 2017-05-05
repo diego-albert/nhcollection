@@ -74,7 +74,7 @@ el.core.managers.layoutManager = (function() {
 
   function _getWindowSize() {
 
-    winSize.w = winSize.width = $window.width();
+    winSize.w = winSize.width = $window.width() - 35; // We remove 35px for nav bar
     winSize.h = winSize.height = $window.height();
 
     return winSize;
@@ -93,13 +93,14 @@ el.core.managers.layoutManager = (function() {
       'width': winSize.width + 'px',
       'height': winSize.height + 'px'
     });
+
   }
 
   function _setSizes($target) {
 
     var w = winSize.width,
         h = winSize.height
-    ; 
+    ;
 
     if($target.data('fullscreenMinHeight')) {
 
@@ -143,7 +144,7 @@ el.core.managers.layoutManager = (function() {
 
         _setSizes($target);
       }
-    });    
+    });
 
     el.core.events.globalDispatcher.emit(Event.RESIZE, {
       'winW': winSize.width,

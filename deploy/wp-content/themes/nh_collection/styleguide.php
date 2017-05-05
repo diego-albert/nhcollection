@@ -77,7 +77,7 @@
         <button class="block-button tag-button"><span class="label-font">#People</span></button>
         <p class="label-font">block-button tag-button</p>
 
-        <button id="hamburger-icon" class="open">
+        <button class="hamburger-icon open">
           <span class="line line-1"></span>
           <span class="line line-2"></span>
           <span class="line line-3"></span>

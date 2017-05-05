@@ -8,12 +8,19 @@
 </head>
 
 <body id="nh-collection">
-<!--   <header>
-    <h1><?php// bloginfo('name'); ?></h1>
-  </header> -->
 
-<!--   <nav>
-    <ul class="main-nav">
-      <?php // wp_nav_menu( array( 'theme_location' => 'main_menu' ) ); ?>
-    </ul>
-  </nav> -->
+  <nav class="main-menu"
+  data-component="main-menu-component">
+
+    <div class="main-menu-bar vertical-button">
+
+      <div class="hamburger-icon">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+        <span class="line line-4"></span>
+      </div>
+
+    </div>
+
+  </nav>

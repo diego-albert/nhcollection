@@ -20,8 +20,11 @@
 				margin: 10px 0;
 			}
 
-			#hamburger-icon {
+			.hamburger-icon {
 				margin: 25px auto 0;
+				.line {
+					background: $NH_RED_COLOR;
+				}
 			}
 
 

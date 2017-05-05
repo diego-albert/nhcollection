@@ -13,7 +13,10 @@ site.components.HomeViewComponent = el.core.utils.class.extend(function(options)
   this.id = el.core.utils.uniqueId.get(this.name + '-');
 
   this.$el = this.options.$el;
-  this.$introSection = this.$el.find('.intro-section');
+
+  this._register();
+
+  // this.$introSection = this.$el.find('.intro-section');
 
   console.log(this.name, this.options);
 

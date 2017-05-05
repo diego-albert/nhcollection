@@ -5,7 +5,7 @@
 
 	<div class="homepage-mainmenu fullscreen-js"
 	data-component="home-view-component"
-	>
+	><!-- Por ahora no usamos home view comp -->
 
 	<div class="homemenu-wrapper">
 
