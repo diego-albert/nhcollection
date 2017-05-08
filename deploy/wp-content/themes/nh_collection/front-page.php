@@ -69,7 +69,11 @@
 					<div class="overlay-element no-ribond">
 						<div class="relative-wrapper">
 							<div class="img-wrapper">
-								<img src="<?php echo get_template_directory_uri() . '/assets/images/homepage/feels.jpg'?>" alt="the feels">
+								<picture>
+								  <source srcset="<?php echo get_template_directory_uri() . '/assets/images/homepage/feels-S.jpg'?>" media="(max-width: 1280px)">
+								  <source srcset="<?php echo get_template_directory_uri() . '/assets/images/homepage/feels.jpg'?>">
+								  <img src="<?php echo get_template_directory_uri() . '/assets/images/homepage/feels.jpg'?>" alt="the feels">
+								</picture>
 							</div>
 							<div class="header-wrapper white">
 								<p class="navigation--header"><span class="pre">The</span><br />feels</p>

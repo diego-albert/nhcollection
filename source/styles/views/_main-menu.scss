@@ -1,14 +1,45 @@
 #nh-collection {
 
 	.main-menu {
-		float: left;
-		position: relative;
-		width: 35px;
-		// background-color: $NH_RED_COLOR;
+		position: absolute;
+		top: 0;
+		left: 35px;
+		width: 40%;
+		min-width: 480px;
+		z-index: 99;
+		background-color: rgba(0,0,0,0.5);
+		transform: translateX(-100%);
+		transition: all $BTN_HOVER_TRANSITION ease;
+		overflow: hidden;
+		&.open {
+			left: 0;
+			transform: translateX(0%);
+		}
+
+		.main-menu-wrapper {
+			position: relative;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.go-home {
+			height: 100%;
+			width: 35px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
 
 		.main-menu-bar {
 			height: 100%;
-			width: 100%;
+			width: 35px;
+			position: absolute;
+			right: 0;
+			top: 0;
 
 			.hamburger-icon {
 				position: absolute;
@@ -27,6 +58,36 @@
 							left: 0;
 						}
 					}
+				}
+			}
+		}
+
+		// Sections container
+		.section-wrapper {
+			width: 100%;
+			height: 100%;
+			padding: 0 35px;
+			overflow: hidden;
+			overflow-y: auto;
+			@media (max-height: 760px) {
+				padding: 0 20px 0 35px; // Hide scroll bar
+			}
+
+			.section-item {
+				display: block;
+				position: relative;
+				width: 100%;
+				height: 20%;
+				background-color: #FFF;
+				@media (max-height: 760px) {
+					height: 25%;
+				}
+				@media (max-height: 600px) {
+					padding-bottom: 40%;
+				}
+
+				.overlay-element {
+					position: absolute;
 				}
 			}
 		}

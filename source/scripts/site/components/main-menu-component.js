@@ -39,12 +39,12 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 	that = this;
 
 	if (this.menuOpened) {
-
+    this.$el.removeClass('open');
 		this.$mainMenuBar.removeClass('active').find('.hamburger-icon').removeClass('open');
 		this.menuOpened = false;
 
 	} else {
-
+    this.$el.addClass('open');
 		this.$mainMenuBar.addClass('active').find('.hamburger-icon').addClass('open');
 		this.menuOpened = true;
 

@@ -45,16 +45,43 @@
 		transform: translateX(-50%);
 	}
 
+	&.small {
+		@include font-size(55px, 45px);
+		span.pre {
+			@include font-size(25px, 35px);
+			transform: translateX(-10%);
+			&.no-space {
+				transform: translate(-10%,15px);
+			}
+		}
+	}
+
 	@media (max-width: $BREAKPOINT_L) {
 		@include font-size(50px, 42px);
 		span.pre {
 			@include font-size(17px, 25px);
+		}
+		&.small {
+			@include font-size(35px, 30px);
+			span.pre {
+				@include font-size(20px, 30px);
+				&.no-space {
+					transform: translate(-10%,10px);
+				}
+			}
 		}
 	}
 	@media (max-width: $BREAKPOINT_M) {
 		@include font-size(40px, 32px);
 		span.pre {
 			@include font-size(15px, 25px);
+		}
+		&.small {
+			span.pre {
+				&.no-space {
+					transform: translate(-10%,5px);
+				}
+			}
 		}
 	}
 }

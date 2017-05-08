@@ -2470,6 +2470,15 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/scripts\/main-min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/scripts\/main-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/scripts\/main.js": {
 		"ft": 64,
 		"mi": 1,
@@ -2520,6 +2529,15 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/scripts\/site\/components\/home-view-component-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/scripts\/site\/components\/main-menu-component.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/scripts\/site\/components\/main-menu-component-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -3444,6 +3462,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/styles\/views\/_home.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/styles\/views\/_main-menu.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/views\/_main-menu.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

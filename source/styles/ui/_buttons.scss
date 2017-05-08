@@ -180,25 +180,29 @@
 			overflow: hidden;
 			transition: all $BTN_LABEL_TRANSITION linear;
 			&.line-1 {
-			  top:0;
+			  // top:0;
+			  top: -1px;
 			  &:after {
 			  	transition-delay: $BTN_TRANSITION_DELAY*0.6;
 			  }
 			}
 			&.line-2 {
-			  top:33.3%;
+			  // top:33.3%;
+			  top: 3px;
 			  &:after {
 			  	transition-delay: $BTN_TRANSITION_DELAY*0.8;
 			  }
 			}
 			&.line-3 {
-			  top:66.6%;
+			  // top:66.6%;
+			  top: 7px;
 			  &:after {
 			  	transition-delay: $BTN_TRANSITION_DELAY*1.2;
 			  }
 			}
 			&.line-4 {
-			  top:100%;
+			  // top:100%;
+			  top: 11px;
 			  &:after {
 			  	transition-delay: $BTN_TRANSITION_DELAY*0.8;
 			  }
@@ -245,6 +249,7 @@
 	.vertical-button {
 		position: relative;
 		cursor: pointer;
+		background-color: $WHITE;
 		&:before {
 			display: block;
 			content: '';
@@ -252,7 +257,7 @@
 			background-color: $NH_RED_COLOR;
 			z-index: 0;
 			height: 100%;
-			width: 100%;
+			width: 101%;
 			top: 0;
 			transition: width $BTN_HOVER_TRANSITION ease;
 		}
@@ -260,6 +265,12 @@
 			cursor: pointer;
 			&:before {
 				width: 0;
+			}
+		}
+		&.inverted {
+			background-color: $NH_RED_COLOR;
+			&:before {
+				background-color: $WHITE;
 			}
 		}
 	}
