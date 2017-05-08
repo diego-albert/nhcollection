@@ -14,7 +14,9 @@
 
     <div class="main-menu-wrapper">
 
-      <div class="go-home vertical-button inverted"></div>
+      <a href="<?php echo get_home_url(); ?>" class="go-home vertical-button inverted">
+        <span class="icon-home-icon"></span>
+      </a>
       <div class="main-menu-bar vertical-button">
 
         <div class="hamburger-icon">

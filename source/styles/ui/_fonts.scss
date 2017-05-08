@@ -90,6 +90,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-home-icon:before {
+  content: "\e907";
+}
 .icon-gastro_hotel:before {
   content: "\e905";
 }
@@ -110,6 +113,15 @@
 }
 .icon-play_icon:before {
   content: "\e906";
+}
+.icon-facebook:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
 }
 
 

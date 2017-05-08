@@ -27,11 +27,29 @@
 		}
 
 		.go-home {
+			display: block;
 			height: 100%;
 			width: 35px;
 			position: absolute;
 			left: 0;
 			top: 0;
+
+			span.icon-home-icon {
+				display: block;
+				position: absolute;
+				font-size: 14px;
+				top: 50%;
+				left: 50%;
+				margin: -7px 0 0 -7px;
+				color: $NH_RED_COLOR;
+				transition: color $BTN_HOVER_TRANSITION ease;
+				z-index: 1;
+			}
+			&:hover {
+				span.icon-home-icon {
+					color: $WHITE;
+				}
+			}
 		}
 
 		.main-menu-bar {
