@@ -25,6 +25,7 @@
 // @codekit-prepend "site/components/base-component.js"
 // @codekit-prepend "site/components/main-menu-component.js"
 // @codekit-prepend "site/components/home-view-component.js"
+// @codekit-prepend "site/components/youtube-player-component.js"
 
 // @codekit-prepend "site/views/header-view.js"
 // @codekit-prepend "site/views/page-view.js"

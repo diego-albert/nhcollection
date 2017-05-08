@@ -12,11 +12,14 @@
 
 @import 'core/global';
 
-
 @import 'header';
 @import 'page-view';
 
+@import 'components/olapic-feed';
+@import 'components/_youtube-player';
+
 @import 'views/styleguide';
 
-@import 'views/home';
 @import 'views/main-menu';
+@import 'views/home';
+@import 'views/feeling-collectors';

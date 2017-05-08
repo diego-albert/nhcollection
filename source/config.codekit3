@@ -2470,18 +2470,9 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/scripts\/main-min.js": {
-		"ft": 64,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/scripts\/main-min-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/scripts\/main.js": {
 		"ft": 64,
-		"mi": 1,
+		"mi": 0,
 		"oA": 0,
 		"oAP": "\/Users\/mac\/Documents\/Developer\/nhcollection\/nhcollection\/deploy\/wp-content\/themes\/nh_collection\/assets\/scripts\/main.js",
 		"oF": 6,
@@ -2547,6 +2538,15 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/scripts\/site\/components\/template-component-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/scripts\/site\/components\/youtube-player-component.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/scripts\/site\/components\/youtube-player-component-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -3297,6 +3297,32 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/styles\/components\/_youtube-player.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/components\/_youtube-player.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/styles\/components\/olapic-feed.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/components\/olapic-feed.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/styles\/core\/_constants.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -3488,6 +3514,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/styles\/views\/_styleguide.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/styles\/views\/feeling-collectors.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/views\/feeling-collectors.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
