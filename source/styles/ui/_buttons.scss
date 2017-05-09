@@ -40,16 +40,16 @@
 			background-color: $NH_RED_COLOR;
 			z-index: 0;
 			height: 100%;
-			width: 51%;
+			width: 55%;
 			top: 0;
 			transition: width $BTN_HOVER_TRANSITION ease;
 		}
 
 		&:before {
-			left: 0;
+			left: -1%;
 		}
 		&:after {
-			right: 0;
+			right: -1%;
 		}
 
 		span {
@@ -271,6 +271,35 @@
 			background-color: $NH_RED_COLOR;
 			&:before {
 				background-color: $WHITE;
+			}
+		}
+
+		&.main-menu-bar,
+		&.close-video {
+			height: 100%;
+			width: 35px;
+			position: absolute;
+			right: 0;
+			top: 0;
+
+			.hamburger-icon {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin: -6px 0 0 -8px;
+			}
+
+			&:hover {
+				.hamburger-icon {
+					.line-1,
+					.line-2,
+					.line-3,
+					.line-4 {
+						&:after {
+							left: 0;
+						}
+					}
+				}
 			}
 		}
 	}

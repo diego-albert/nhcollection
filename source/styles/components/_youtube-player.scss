@@ -49,8 +49,11 @@
 			right: 0;
 			bottom: 0;
 			z-index: 10;
+			opacity: 1;
+			width: 0%;
+			display: none;
 			padding: 0 35px;
-			background-color: green;
+			background-color: $BLACK;
 
 			#player {
 				width: 100%;
