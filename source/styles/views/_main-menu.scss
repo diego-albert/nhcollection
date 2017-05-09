@@ -41,15 +41,9 @@
 				top: 50%;
 				left: 50%;
 				margin: -7px 0 0 -7px;
-				color: $NH_RED_COLOR;
-				transition: color $BTN_HOVER_TRANSITION ease;
 				z-index: 1;
 			}
-			&:hover {
-				span.icon-home-icon {
-					color: $WHITE;
-				}
-			}
+
 		}
 
 		// Sections container
@@ -80,6 +74,30 @@
 					position: absolute;
 				}
 			}
+		}
+
+		&.disabled { // Disable mainMenu
+
+			.main-menu-bar {
+				.hamburger-icon {
+					display: none;
+				}
+			}
+
+		}
+
+		&.basic { // Only display GoHome btn
+			width: 35px;
+			min-width: auto;
+			left: 0;
+			transform: translateX(0);
+			.main-menu-bar {
+				display: none;
+			}
+			.section-wrapper {
+				display: none;
+			}
+
 		}
 	}
 }

@@ -250,6 +250,8 @@
 		position: relative;
 		cursor: pointer;
 		background-color: $WHITE;
+		color: $WHITE;
+		transition: color $BTN_HOVER_TRANSITION ease;
 		&:before {
 			display: block;
 			content: '';
@@ -263,14 +265,19 @@
 		}
 		&:hover {
 			cursor: pointer;
+			color: $NH_RED_COLOR;
 			&:before {
 				width: 0;
 			}
 		}
 		&.inverted {
 			background-color: $NH_RED_COLOR;
+			color: $NH_RED_COLOR;
 			&:before {
 				background-color: $WHITE;
+			}
+			&:hover {
+				color: $WHITE;
 			}
 		}
 
@@ -300,6 +307,15 @@
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.disabled .vertical-button {
+		&:hover {
+			cursor: inherit;
+			&:before {
+				width: 101%;
 			}
 		}
 	}
