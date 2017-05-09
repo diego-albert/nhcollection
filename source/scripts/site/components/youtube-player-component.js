@@ -15,15 +15,9 @@ site.components.YoutubePlayerComponent = el.core.utils.class.extend(function(opt
 
   this.$el = this.options.$el;
   this.$playerActive = this.$el.find('.player-active');
-  this.$player = this.$el.find('#player');
+  this.$playerDiv = this.$el.find('#player');
 
   this._register();
-
-  // Load the IFrame Player API code asynchronously.
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/player_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   //Create video player
   this.init();
@@ -37,13 +31,52 @@ site.components.YoutubePlayerComponent.prototype.init = function() {
 
   var that = this;
 
+  el.core.events.globalDispatcher.once(el.core.events.event.YOUTUBE_API_LOADED, $.proxy(this._createVideo, this));
+
+  if (typeof window.YT == 'undefined') { // Check if API is already loaded
+
+    // Load the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  } else { // If API has been loaded
+
+    this._createVideo();
+
+  }
+
   window.onYouTubeIframeAPIReady = function () {
 
+    el.core.events.globalDispatcher.emit(el.core.events.event.YOUTUBE_API_LOADED);
+
+  }
+
+}
+
+site.components.YoutubePlayerComponent.prototype.stateChange = function() {
+
+  var state = window.player1.getPlayerState();
+
+  // console.log('stateChange event! STATE = ', state);
+
+  if (state === 0){ // Video Ended State
+
+    this._closeVideo();
+
+  }
+
+}
+
+site.components.YoutubePlayerComponent.prototype._createVideo = function(e) {
+
+    var that = this;
     // Declase options YT API
     // defaults
     var defaults = {
         ratio: 16 / 9, // usually either 4/3 or 16/9 -- tweak as needed
-        videoid: that.$player.data('yt-id'),
+        videoid: that.$playerDiv.data('yt-id'),
         mute: false,
         repeat: false,
         width: $(window).width() / 2,
@@ -62,7 +95,7 @@ site.components.YoutubePlayerComponent.prototype.init = function() {
                       }, this);
 
     window.player1;
-    player1 = new YT.Player('player', {
+    window.player1 = new YT.Player('player', {
         videoId: options.videoid,
         playerVars: {
             controls: 1,
@@ -81,22 +114,6 @@ site.components.YoutubePlayerComponent.prototype.init = function() {
     that.$el.find('.block-button.play-button').on('click', $.proxy( that._openVideo, that));
     that.$playerActive.find('.vertical-button.close-video').on('click', $.proxy( that._closeVideo, that));
 
-    }
-
-}
-
-site.components.YoutubePlayerComponent.prototype.stateChange = function() {
-
-  var state = player1.getPlayerState();
-
-  // console.log('stateChange event! STATE = ', state);
-
-  if (state === 0){ // Video Ended State
-
-    this._closeVideo();
-
-  }
-
 }
 
 site.components.YoutubePlayerComponent.prototype._openVideo = function(e) {
@@ -106,7 +123,7 @@ site.components.YoutubePlayerComponent.prototype._openVideo = function(e) {
   }, {
     display: "block",
     duration: 300,
-    complete: player1.playVideo()
+    complete: window.player1.playVideo()
   });
 
 }
@@ -118,7 +135,7 @@ site.components.YoutubePlayerComponent.prototype._closeVideo = function(e) {
   }, {
     display: "none",
     duration: 300,
-    complete: player1.stopVideo()
+    complete: window.player1.stopVideo()
   });
 
 }
@@ -126,6 +143,6 @@ site.components.YoutubePlayerComponent.prototype._closeVideo = function(e) {
 site.components.YoutubePlayerComponent.prototype.destroy = function(e) {
 
   this.parent.destroy.call(this);
-  player1.destroy();
+  window.player1 = '';
 
 }
