@@ -33,7 +33,16 @@ site.views.Page.prototype.init = function(e) {
 
   console.log('init', this.id);
 
+  // Ignore WP Admin Panel links for SmoothState
+  $( 'a' ).each( function() {
+      if ( this.href.indexOf('/wp-admin/') !== -1 ||
+           this.href.indexOf('/wp-login.php') !== -1 ) {
+          $( this ).addClass( 'wp-link' );
+      }
+  });
+
   smoothStateOptions = {
+    'blacklist': '.wp-link',
     'prefetchOn': 'mouseover',
     'cacheLength': 5,
     'debug': true,
