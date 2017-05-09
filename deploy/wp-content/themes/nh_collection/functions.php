@@ -18,7 +18,7 @@ add_action( 'init', 'my_menus' );
 function nhcollection_scripts() {
 
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/styles/main.css', array(), '0.1' );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array( 'jquery' ), '0.1', false );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/scripts/main.js', array(), '0.1', false );
 }
 add_action( 'wp_enqueue_scripts', 'nhcollection_scripts' );
 
