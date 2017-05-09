@@ -1,3 +1,6 @@
+<?php
+	$home_url = get_home_url();
+?>
 <!-- Archivo de cabecera global de Wordpress -->
 <?php get_header(); ?>
 
@@ -12,7 +15,7 @@
 		<div class="col">
 
 			<!-- item-1 -->
-			<a href="#" class="home-anchor">
+			<a href="<?php echo $home_url . '/feeling-collectors/'; ?>" class="home-anchor">
 				<span class="section-item">
 					<div class="overlay-element">
 						<div class="relative-wrapper">
