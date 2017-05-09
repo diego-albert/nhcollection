@@ -4,6 +4,7 @@
 // @codekit-prepend "libs/bowser.js"
 
 // @codekit-prepend "plugins/slick.js"
+// @codekit-prepend "plugins/jquery.smoothState.js"
 
 // @codekit-prepend "core/utils/namespace.js"
 // @codekit-prepend "core/utils/class.js"

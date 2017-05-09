@@ -45,10 +45,23 @@ p {
   margin-left: 35px;
 }
 
-
-// line breaks
-
 // Transition between pages
+
+#nh-main-content {
+  position: relative;
+  transition: all .5s ease;
+
+  &.is-exiting {
+    top: 35px;
+    opacity: 0;
+  }
+  &.is-entering {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+// FadeIn on Scroll
 
 .watcher-js {
   .js-view-title,

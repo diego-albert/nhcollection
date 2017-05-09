@@ -18,7 +18,7 @@ site.views.Page = el.core.utils.class.extend(function(options){
   this.$el = this.options.$el;
 
   this.$body = $('body');
-  this.$mainContent = this.$body.find('#main-content');
+  this.$mainContent = this.$body.find('#nh-main-content');
   this.$footer = this.$body.find('footer');
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeHandler, this));
@@ -27,10 +27,65 @@ site.views.Page = el.core.utils.class.extend(function(options){
 
 site.views.Page.prototype.init = function(e) {
 
+    var that = this,
+        smoothStateOptions,
+        smoothState;
+
+  console.log('init', this.id);
+
+  smoothStateOptions = {
+    'prefetchOn': 'mouseover',
+    'cacheLength': 5,
+    'debug': true,
+    'onStart': {
+
+      'duration': 500,
+      'render': function($container){
+        console.log('SS:START',smoothState.href);
+        that.$mainContent.addClass('is-exiting').removeClass('is-entering');
+
+        // el.core.events.globalDispatcher.emit(site.events.event.PAGE_CHANGE_START, {});
+      }
+    },
+    'onReady': {
+      'render': function($container, $newContent) {
+
+        console.log('SS:ONREADY',smoothState.href);
+
+        // destroy old components
+        that.components = [];
+        site.managers.componentsManager.destroyComponents();
+
+        // scroll to top
+        el.core.managers.scrollManager.scrollTo(0);
+
+        $container.find('#nh-main-content')
+          // remove old content and jQuery stuff
+          .empty()
+          // replace only content div and leave the header and footer alone :D
+          .html($newContent.filter('#nh-main-content').html())
+        ;
+
+        // el.core.events.globalDispatcher.emit(site.events.event.PAGE_CHANGE_READY, {});
+
+        that.initPage();
+      }
+    }
+  }
+
+  // scroll to top before unlaod to prevent browser auto scroll to memorized position
+  $(window).on('unload', function(){
+    el.core.managers.scrollManager.scrollTo(0);
+  })
+
+  // initialise smooth state plugin
+  smoothState = $('#page').smoothState(smoothStateOptions).data('smoothState');
+
   // initialise the default page
   this.initPage();
 
   return this;
+
 }
 
 site.views.Page.prototype.initPage = function() {
@@ -52,8 +107,13 @@ site.views.Page.prototype.initPage = function() {
     }));
   });
 
+  el.core.events.globalDispatcher.emit(site.events.event.LOCATION_UPDATE, {
+    'href': window.location.pathname
+  });
 
   el.core.managers.layoutManager.resize();
+
+  that.$mainContent.removeClass('is-exiting').addClass('is-entering');
 
 }
 
