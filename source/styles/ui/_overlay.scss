@@ -208,3 +208,45 @@
 		}
 	}
 }
+
+.video-list-item {
+	width: 400px;
+	height: 350px;
+	.relative-wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		.img-wrapper {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			img {
+				width: auto;
+				height: auto;
+				min-width: 100%;
+				min-height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+		}
+		.absolute-wrapper {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			color: $NH_BROWN_COLOR;
+			transform: translateY(-50%);
+			.label-font {
+				&:first-child {
+					opacity: 0.75;
+				}
+			}
+			.block-button {
+				margin-top: 10px;
+			}
+		}
+	}
+}
