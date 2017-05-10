@@ -67,7 +67,7 @@
 				</div>
 			</div>
 			<!-- item-2 -->
-			<a href="#" class="home-anchor">
+			<a href="<?php echo $home_url . '/feels/'; ?>" class="home-anchor">
 				<span class="section-item">
 					<div class="overlay-element no-ribond">
 						<div class="relative-wrapper">

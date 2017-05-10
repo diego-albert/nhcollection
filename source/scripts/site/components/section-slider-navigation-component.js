@@ -14,6 +14,7 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
 
   this.$el = this.options.$el;
   this.$slider = this.$el.find('.slider-wrapper');
+  this.$slideItem = this.$slider.find('li');
 
   this._register();
 
@@ -21,21 +22,42 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
 
   console.log(this.name, this.options);
 
+  this.$slideItem.mouseover( $.proxy(this._scrollToSlide, this) );
+
 }, site.components.BaseComponent);
 
-site.components.SectionSliderNavigation.prototype._init = function() {
+site.components.SectionSliderNavigation.prototype._init = function(e) {
 
   this.$slider.slick({
     infinite: false,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 3.1,
     slidesToScroll: 1,
-    arrows: false
+    arrows: false,
+    certerMode: true,
+    edgeFriction: 0,
+    infinite: false
   });
 
 }
 
-site.components.SectionSliderNavigation.prototype.destroy = function() {
+site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
+
+  // console.log(e.currentTarget);
+  var target = $(e.currentTarget),
+      currentSlide = this.$slider.slick('slickCurrentSlide');
+
+  if ( !target.hasClass('slick-active') ){
+    // console.log( target.data('slick-index') );
+
+    var setPos = ( currentSlide > target.data('slick-index') ) ? currentSlide-1 : currentSlide+1;
+
+    this.$slider.slick( 'slickGoTo', setPos );
+
+  }
+}
+
+site.components.SectionSliderNavigation.prototype.destroy = function(e) {
 
   this.parent.destroy.call(this);
   this.$slider.slick('unslick');

@@ -15,11 +15,66 @@
         data-component="section-slider-navigation">
 
         <ul class="slider-wrapper">
-          <li>section1</li>
-          <li>section2</li>
-          <li>section3</li>
-          <li>section4</li>
-          <li>section5</li>
+          <!-- item 1 | feel the place -->
+          <li>
+            <div class="overlay-element">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/feels/feel_place.jpg'?>" alt="Feel the place">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header">feel <span class="section">the place</span></p>
+                </div>
+                <div class="overlay-ribond"></div>
+              </div>
+            </div>
+          </li>
+
+          <!-- item 2 | feel inspired -->
+          <li>
+            <div class="overlay-element inverted">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/feels/feel_inspired.jpg'?>" alt="Feel inspired">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header">feel <span class="section">inspired</span></p>
+                </div>
+                <div class="overlay-ribond"></div>
+              </div>
+            </div>
+          </li>
+
+          <!-- item 3 | feel unique -->
+          <li>
+            <div class="overlay-element">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/feels/feel_unique.jpg'?>" alt="Feel unique">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header">feel <span class="section">unique</span></p>
+                </div>
+                <div class="overlay-ribond"></div>
+              </div>
+            </div>
+          </li>
+
+          <!-- item 4 | feel beyond -->
+          <li>
+            <div class="overlay-element inverted">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/feels/feel_beyond.jpg'?>" alt="Feel beyond">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header small">feel beyond</p>
+                </div>
+                <div class="overlay-ribond"></div>
+              </div>
+            </div>
+          </li>
+
         </ul>
 
       </div>
