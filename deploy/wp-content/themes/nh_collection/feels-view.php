@@ -10,7 +10,6 @@
 
     <div class="main-section">
 
-
       <div class="section-navigation"
         data-component="section-slider-navigation">
 
@@ -76,8 +75,44 @@
           </li>
 
         </ul>
-
       </div>
+
+      <!-- feel beyond section -->
+      <div class="feel-beyond-section" data-component="section-slider-navigation">
+        <div class="video-list">
+          <ul class="slider-wrapper">
+            <li>
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://placehold.it/400x300/222" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <p class="label-font">Feel welcomed</p>
+                    <p class="label-font">Lorem ipsum dolor sit amet</p>
+                    <button class="block-button play-button"><span class="icon icon-play_icon"></span></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://placehold.it/400x300/333" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <p class="label-font">Feel welcomed</p>
+                    <p class="label-font">Lorem ipsum dolor sit amet</p>
+                    <button class="block-button play-button"><span class="icon icon-play_icon"></span></button>
+                  </div>
+                </div>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- feel beyond section -->
 
     </div>
 
@@ -85,7 +120,6 @@
     <div id="nh-olapic-feed" class="olapic-section">
 
       <!-- Here will be displayed olapic feed   -->
-
     </div>
 
 
@@ -104,9 +138,7 @@
           </div>
 
         </div>
-
-      </div>
-
+    </div>
 
   </div>
 
