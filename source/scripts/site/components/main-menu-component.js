@@ -42,8 +42,10 @@ site.components.MainMenuComponent.prototype._init = function(data) {
         break;
 
     case 'feeling-collectors':
-        this.manuEnable = false;
+    case 'feels':
+        this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+        break;
 
   }
 

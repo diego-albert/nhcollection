@@ -14,7 +14,7 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
 
   this.$el = this.options.$el;
   this.$slider = this.$el.find('.slider-wrapper');
-  this.$slideItem = this.$slider.find('li');
+  this.$slideItem = this.$slider.find('li.feel-item');
 
   this._register();
 
@@ -23,6 +23,7 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   console.log(this.name, this.options);
 
   this.$slideItem.mouseover( $.proxy(this._scrollToSlide, this) );
+  this.$slideItem.on('click', $.proxy(this._displaySubSection, this) );
 
 }, site.components.BaseComponent);
 
@@ -30,15 +31,26 @@ site.components.SectionSliderNavigation.prototype._init = function(e) {
 
   this.$slider.slick({
     infinite: false,
-    speed: 300,
     slidesToShow: 3.1,
     slidesToScroll: 1,
     arrows: false,
     certerMode: true,
-    edgeFriction: 0,
-    infinite: false
+    edgeFriction: 0
   });
 
+  this.$slider.slick('setPosition', 2);
+
+}
+
+site.components.SectionSliderNavigation.prototype._displaySubSection = function(e) {
+
+  var target = $(e.currentTarget),
+      videoId = target.data('yt-id');
+
+  if (typeof videoId !== 'undefined') {
+    // console.log('reproducir video: ', videoId);
+    el.core.events.globalDispatcher.emit(el.core.events.event.PLAY_VIDEO, {'videoId' : videoId});
+  }
 }
 
 site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {

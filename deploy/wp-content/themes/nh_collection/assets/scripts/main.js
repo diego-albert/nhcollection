@@ -8930,6 +8930,7 @@ el.core.events.event = {
 
   APP_INIT                     : 'event.app.init',
   YOUTUBE_API_LOADED           : 'event.youtube.api.loaded',
+  PLAY_VIDEO                   : 'event.play.video',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };
@@ -9455,8 +9456,10 @@ site.components.MainMenuComponent.prototype._init = function(data) {
         break;
 
     case 'feeling-collectors':
-        this.manuEnable = false;
+    case 'feels':
+        this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+        break;
 
   }
 
@@ -9542,11 +9545,10 @@ site.components.YoutubePlayerComponent = el.core.utils.class.extend(function(opt
 
   this.$el = this.options.$el;
   this.$playerActive = this.$el.find('.player-active');
-  this.$playerDiv = this.$el.find('#player');
+  this.$playVideoBtn = this.$el.find('.block-button.play-video-js');
 
   this._register();
 
-  //Create video player
   this.init();
 
   console.log(this.name, this.options);
@@ -9556,11 +9558,7 @@ site.components.YoutubePlayerComponent = el.core.utils.class.extend(function(opt
 
 site.components.YoutubePlayerComponent.prototype.init = function() {
 
-  var that = this;
-
-  el.core.events.globalDispatcher.once(el.core.events.event.YOUTUBE_API_LOADED, $.proxy(this._createVideo, this));
-
-  if (typeof window.YT == 'undefined') { // Check if API is already loaded
+  if ( typeof window.YT == 'undefined' ) { // Check if API is already loaded
 
     // Load the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
@@ -9568,15 +9566,20 @@ site.components.YoutubePlayerComponent.prototype.init = function() {
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  } else { // If API has been loaded
-
-    this._createVideo();
-
   }
+
+  // el.core.events.globalDispatcher.once(el.core.events.event.YOUTUBE_API_LOADED, $.proxy(this._createVideo, this));
+  // el.core.events.globalDispatcher.on(el.core.events.event.PLAY_VIDEO, $.proxy(this._createVideo, this));
+  el.core.events.globalDispatcher.on(el.core.events.event.PLAY_VIDEO, $.proxy(this._openVideo, this));
+  this.$playerActive.find('.vertical-button.close-video').on('click', $.proxy( this._closeVideo, this));
+  this.$playVideoBtn.on('click', function(e){
+    el.core.events.globalDispatcher.emit(el.core.events.event.PLAY_VIDEO, {'videoId' : $(e.currentTarget).data('yt-id') });
+  } );
 
   window.onYouTubeIframeAPIReady = function () {
 
-    el.core.events.globalDispatcher.emit(el.core.events.event.YOUTUBE_API_LOADED);
+    // el.core.events.globalDispatcher.emit(el.core.events.event.YOUTUBE_API_LOADED);
+    console.log('YOUTUBE API LOADED!');
 
   }
 
@@ -9596,61 +9599,52 @@ site.components.YoutubePlayerComponent.prototype.stateChange = function() {
 
 }
 
-site.components.YoutubePlayerComponent.prototype._createVideo = function(e) {
+site.components.YoutubePlayerComponent.prototype._createVideo = function(videoId) {
 
     var that = this;
-    // Declase options YT API
-    // defaults
-    var defaults = {
-        ratio: 16 / 9, // usually either 4/3 or 16/9 -- tweak as needed
-        videoid: that.$playerDiv.data('yt-id'),
-        mute: false,
-        repeat: false,
-        width: $(window).width() / 2,
-        wrapperZIndex: 99,
-        start: 0,
-        state: 0
-    };
 
-    console.log(defaults.videoid);
+    var stateChangeProxy = $.proxy(function( event ){
+        that.stateChange();
+    }, this);
 
-    var options = $.extend({}, defaults, options);
+    var onPlayerReadyProxy = $.proxy(function(event){
+      window.player1.playVideo();
+    }, this);
 
-    var stateChangeProxy = $.proxy(
-                        function( event ){
-                          that.stateChange();
-                      }, this);
+    this.$playerActive.find('#player').replaceWith('<div id="player"></div>');
 
-    window.player1;
+    window.player1 = '';
     window.player1 = new YT.Player('player', {
-        videoId: options.videoid,
+        videoId: videoId,
         playerVars: {
             controls: 1,
             showinfo: 0,
             rel: 0,
             autohide: 1,
             modestbranding: 0,
-            // start: 140,
             wmode: 'transparent'
         },
         events: {
-            'onStateChange': stateChangeProxy
+          'onReady': onPlayerReadyProxy,
+          'onStateChange': stateChangeProxy
         }
     });
-
-    that.$el.find('.block-button.play-button').on('click', $.proxy( that._openVideo, that));
-    that.$playerActive.find('.vertical-button.close-video').on('click', $.proxy( that._closeVideo, that));
 
 }
 
 site.components.YoutubePlayerComponent.prototype._openVideo = function(e) {
+
+  var that = this,
+      videoId = e.videoId;
 
   this.$playerActive.velocity({
     width: '100%'
   }, {
     display: "block",
     duration: 300,
-    complete: window.player1.playVideo()
+    begin: function() {
+      that._createVideo(e.videoId);
+    }
   });
 
 }
@@ -9662,7 +9656,9 @@ site.components.YoutubePlayerComponent.prototype._closeVideo = function(e) {
   }, {
     display: "none",
     duration: 300,
-    complete: window.player1.stopVideo()
+    complete: function(){
+      window.player1.stopVideo();
+    }
   });
 
 }
@@ -9690,7 +9686,7 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
 
   this.$el = this.options.$el;
   this.$slider = this.$el.find('.slider-wrapper');
-  this.$slideItem = this.$slider.find('li');
+  this.$slideItem = this.$slider.find('li.feel-item');
 
   this._register();
 
@@ -9699,6 +9695,7 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   console.log(this.name, this.options);
 
   this.$slideItem.mouseover( $.proxy(this._scrollToSlide, this) );
+  this.$slideItem.on('click', $.proxy(this._displaySubSection, this) );
 
 }, site.components.BaseComponent);
 
@@ -9706,15 +9703,26 @@ site.components.SectionSliderNavigation.prototype._init = function(e) {
 
   this.$slider.slick({
     infinite: false,
-    speed: 300,
     slidesToShow: 3.1,
     slidesToScroll: 1,
     arrows: false,
     certerMode: true,
-    edgeFriction: 0,
-    infinite: false
+    edgeFriction: 0
   });
 
+  this.$slider.slick('setPosition', 2);
+
+}
+
+site.components.SectionSliderNavigation.prototype._displaySubSection = function(e) {
+
+  var target = $(e.currentTarget),
+      videoId = target.data('yt-id');
+
+  if (typeof videoId !== 'undefined') {
+    // console.log('reproducir video: ', videoId);
+    el.core.events.globalDispatcher.emit(el.core.events.event.PLAY_VIDEO, {'videoId' : videoId});
+  }
 }
 
 site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {

@@ -16,7 +16,7 @@
 
         <ul class="slider-wrapper">
           <!-- item 1 | feel the place -->
-          <li>
+          <li class="feel-item" data-yt-id="xMotTAO2FqU">
             <div class="overlay-element">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -31,7 +31,7 @@
           </li>
 
           <!-- item 2 | feel inspired -->
-          <li>
+          <li class="feel-item" data-yt-id="1v7rafzqkRU">
             <div class="overlay-element inverted">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -46,7 +46,7 @@
           </li>
 
           <!-- item 3 | feel unique -->
-          <li>
+          <li class="feel-item" data-yt-id="moZJf5kKwsY">
             <div class="overlay-element">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -61,7 +61,7 @@
           </li>
 
           <!-- item 4 | feel beyond -->
-          <li>
+          <li class="feel-item">
             <div class="overlay-element inverted">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -87,6 +87,25 @@
       <!-- Here will be displayed olapic feed   -->
 
     </div>
+
+
+    <div class="video-player-wrapper" data-component="youtube-player-component">
+
+        <div class="player-active"> <!-- Player FullScreen -->
+          <div id="player"></div>
+
+          <div class="vertical-button close-video">
+            <div class="hamburger-icon open">
+              <span class="line line-1"></span>
+              <span class="line line-2"></span>
+              <span class="line line-3"></span>
+              <span class="line line-4"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
 
 
   </div>
