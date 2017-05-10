@@ -69,6 +69,10 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
   }
 }
 
+site.components.SectionSliderNavigation.prototype.resize = function(e) {
+  this.$slider.slick('resize');
+}
+
 site.components.SectionSliderNavigation.prototype.destroy = function(e) {
 
   this.parent.destroy.call(this);
