@@ -42,7 +42,7 @@ site.views.Page.prototype.init = function(e) {
   });
 
   smoothStateOptions = {
-    'blacklist': '.olapic-item, .olapic-nav-button, .wp-link',
+    'blacklist': '.olapic-item, .olapic-nav-button, .viewer-close, #olapic_viewer_overlay, .wp-link',
     'prefetchOn': 'mouseover',
     'cacheLength': 5,
     'debug': true,
