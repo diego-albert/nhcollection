@@ -9756,61 +9756,6 @@ site.components.SectionSliderNavigation.prototype.destroy = function(e) {
 
 var site = site || {};
 
-el.core.utils.createNamespace(site, 'components')
-
-site.components.OlapicFeedComponent = el.core.utils.class.extend(function(options){
-
-  this.options = {
-
-  };
-
-  $.extend(this.options, options);
-
-  this.name = 'OlapicFeedComponent';
-  this.id = el.core.utils.uniqueId.get(this.name + '-');
-
-  this.$el = this.options.$el;
-  this.$body = $('body#nh-collection');
-
-  this._register();
-  // this.init();
-
-  console.log(this.name, this.options);
-
-  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._toogleComponent,this));
-
-
-}, site.components.BaseComponent);
-
-
-site.components.OlapicFeedComponent.prototype._toogleComponent = function(data) {
-
-  var pageView = data.page_view;
-
-  switch(pageView) {
-
-    case 'feeling-collectors':
-    case 'feels':
-        console.log('show feed!');
-        // this.$el.show();
-        break;
-
-    default:
-    console.log('hide feed');
-        // this.$el.hide();
-
-  }
-
-}
-
-
-// site.components.OlapicFeedComponent.prototype.destroy = function() {
-
-//   this.parent.destroy.call(this);
-// }
-
-var site = site || {};
-
 el.core.utils.createNamespace(site, 'views');
 
 site.views.Header = el.core.utils.class.extend(function(options){
@@ -10186,7 +10131,6 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
 // @codekit-prepend "site/components/home-view-component.js"
 // @codekit-prepend "site/components/youtube-player-component.js"
 // @codekit-prepend "site/components/section-slider-navigation-component.js"
-// @codekit-prepend "site/components/olapic-feed-component.js"
 
 // @codekit-prepend "site/views/header-view.js"
 // @codekit-prepend "site/views/page-view.js"
