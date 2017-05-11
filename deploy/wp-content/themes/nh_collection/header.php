@@ -17,7 +17,7 @@
 
     <div id="nh-main-content">
 
-    <nav class="main-menu <?php echo $post_slug; ?>"
+    <nav class="main-menu"
       data-page-view="<?php echo $post_slug; ?>"
       data-component="main-menu-component"
     >

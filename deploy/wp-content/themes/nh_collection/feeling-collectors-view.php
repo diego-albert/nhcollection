@@ -44,12 +44,6 @@
       </div>
     </div>
 
-    <div id="nh-olapic-feed" class="olapic-section">
-
-      <!-- Here will be displayed olapic feed   -->
-
-    </div>
-
   </div>
 
 <?php get_footer(); ?>

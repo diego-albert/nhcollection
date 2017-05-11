@@ -19,7 +19,7 @@ site.views.Page = el.core.utils.class.extend(function(options){
 
   this.$body = $('body');
   this.$mainContent = this.$body.find('#nh-main-content');
-  this.$footer = this.$body.find('footer');
+  this.$olapicFeed = this.$body.find('#nh-olapic-feed');
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeHandler, this));
 
@@ -42,7 +42,7 @@ site.views.Page.prototype.init = function(e) {
   });
 
   smoothStateOptions = {
-    'blacklist': '.wp-link',
+    'blacklist': '.olapic-item, .olapic-nav-button, .wp-link',
     'prefetchOn': 'mouseover',
     'cacheLength': 5,
     'debug': true,
@@ -52,6 +52,11 @@ site.views.Page.prototype.init = function(e) {
       'render': function($container){
         console.log('SS:START',smoothState.href);
         that.$mainContent.addClass('is-exiting').removeClass('is-entering');
+
+        that.$olapicFeed.velocity({
+          opacity: 0,
+          bottom: '-35px'
+        });
 
         // el.core.events.globalDispatcher.emit(site.events.event.PAGE_CHANGE_START, {});
       }
@@ -116,13 +121,27 @@ site.views.Page.prototype.initPage = function() {
     }));
   });
 
-  el.core.events.globalDispatcher.emit(site.events.event.LOCATION_UPDATE, {
-    'href': window.location.pathname
-  });
+  var pageName = that.$body.find('.main-menu').data('page-view');
+
+  el.core.events.globalDispatcher.emit(el.core.events.event.PAGE_VIEW, {'page_view' : pageName });
 
   el.core.managers.layoutManager.resize();
 
   that.$mainContent.removeClass('is-exiting').addClass('is-entering');
+
+  if ( pageName == 'feels' || pageName == 'feeling-collectors') {
+
+    that.$olapicFeed.velocity({
+      opacity: 1,
+      bottom: 0
+    }, {
+      display: "block",
+    });
+
+  } else {
+    that.$olapicFeed.css('display', 'none');
+  }
+
 
 }
 

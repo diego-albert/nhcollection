@@ -20,19 +20,19 @@ site.components.MainMenuComponent = el.core.utils.class.extend(function(options)
 
   this._register();
 
-  this._init();
-
   console.log(this.name, this.options);
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeMainMenu, this));
-  this.$el.on('click', $.proxy(this._triggerMenuPosition, this))
+  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._init,this));
+  this.$el.on('click', $.proxy(this._triggerMenuPosition, this));
+
 
 }, site.components.BaseComponent);
 
 
 site.components.MainMenuComponent.prototype._init = function(data) {
 
-  var pageView = this.$el.data('page-view');
+  var pageView = data.page_view;
 
   switch(pageView) {
 

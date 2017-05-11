@@ -8931,6 +8931,8 @@ el.core.events.event = {
   APP_INIT                     : 'event.app.init',
   YOUTUBE_API_LOADED           : 'event.youtube.api.loaded',
   PLAY_VIDEO                   : 'event.play.video',
+  LOCATION_UPDATE              : 'event.location.update',
+  PAGE_VIEW                    : 'event.page.view',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };
@@ -9374,7 +9376,7 @@ site.events.event_base = {
 
   'PAGE_SHOWN'              : 'event.page.shown',
   'MAPS_API_READY'          : 'event.maps.api.ready',
-  'LOCATION_UPDATE'         : 'event.location.update',
+  // 'LOCATION_UPDATE'         : 'event.location.update',
   'IMAGE_LOADED'            : 'event.image.loaded',
 
   'OVERLAY_HIDE_REQUEST'              : 'event.overlay.hide.request',
@@ -9434,19 +9436,19 @@ site.components.MainMenuComponent = el.core.utils.class.extend(function(options)
 
   this._register();
 
-  this._init();
-
   console.log(this.name, this.options);
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeMainMenu, this));
-  this.$el.on('click', $.proxy(this._triggerMenuPosition, this))
+  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._init,this));
+  this.$el.on('click', $.proxy(this._triggerMenuPosition, this));
+
 
 }, site.components.BaseComponent);
 
 
 site.components.MainMenuComponent.prototype._init = function(data) {
 
-  var pageView = this.$el.data('page-view');
+  var pageView = data.page_view;
 
   switch(pageView) {
 
@@ -9754,6 +9756,61 @@ site.components.SectionSliderNavigation.prototype.destroy = function(e) {
 
 var site = site || {};
 
+el.core.utils.createNamespace(site, 'components')
+
+site.components.OlapicFeedComponent = el.core.utils.class.extend(function(options){
+
+  this.options = {
+
+  };
+
+  $.extend(this.options, options);
+
+  this.name = 'OlapicFeedComponent';
+  this.id = el.core.utils.uniqueId.get(this.name + '-');
+
+  this.$el = this.options.$el;
+  this.$body = $('body#nh-collection');
+
+  this._register();
+  // this.init();
+
+  console.log(this.name, this.options);
+
+  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._toogleComponent,this));
+
+
+}, site.components.BaseComponent);
+
+
+site.components.OlapicFeedComponent.prototype._toogleComponent = function(data) {
+
+  var pageView = data.page_view;
+
+  switch(pageView) {
+
+    case 'feeling-collectors':
+    case 'feels':
+        console.log('show feed!');
+        // this.$el.show();
+        break;
+
+    default:
+    console.log('hide feed');
+        // this.$el.hide();
+
+  }
+
+}
+
+
+// site.components.OlapicFeedComponent.prototype.destroy = function() {
+
+//   this.parent.destroy.call(this);
+// }
+
+var site = site || {};
+
 el.core.utils.createNamespace(site, 'views');
 
 site.views.Header = el.core.utils.class.extend(function(options){
@@ -9815,7 +9872,7 @@ site.views.Page = el.core.utils.class.extend(function(options){
 
   this.$body = $('body');
   this.$mainContent = this.$body.find('#nh-main-content');
-  this.$footer = this.$body.find('footer');
+  this.$olapicFeed = this.$body.find('#nh-olapic-feed');
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeHandler, this));
 
@@ -9838,7 +9895,7 @@ site.views.Page.prototype.init = function(e) {
   });
 
   smoothStateOptions = {
-    'blacklist': '.wp-link',
+    'blacklist': '.olapic-item, .olapic-nav-button, .wp-link',
     'prefetchOn': 'mouseover',
     'cacheLength': 5,
     'debug': true,
@@ -9848,6 +9905,11 @@ site.views.Page.prototype.init = function(e) {
       'render': function($container){
         console.log('SS:START',smoothState.href);
         that.$mainContent.addClass('is-exiting').removeClass('is-entering');
+
+        that.$olapicFeed.velocity({
+          opacity: 0,
+          bottom: '-35px'
+        });
 
         // el.core.events.globalDispatcher.emit(site.events.event.PAGE_CHANGE_START, {});
       }
@@ -9912,13 +9974,27 @@ site.views.Page.prototype.initPage = function() {
     }));
   });
 
-  el.core.events.globalDispatcher.emit(site.events.event.LOCATION_UPDATE, {
-    'href': window.location.pathname
-  });
+  var pageName = that.$body.find('.main-menu').data('page-view');
+
+  el.core.events.globalDispatcher.emit(el.core.events.event.PAGE_VIEW, {'page_view' : pageName });
 
   el.core.managers.layoutManager.resize();
 
   that.$mainContent.removeClass('is-exiting').addClass('is-entering');
+
+  if ( pageName == 'feels' || pageName == 'feeling-collectors') {
+
+    that.$olapicFeed.velocity({
+      opacity: 1,
+      bottom: 0
+    }, {
+      display: "block",
+    });
+
+  } else {
+    that.$olapicFeed.css('display', 'none');
+  }
+
 
 }
 
@@ -10110,6 +10186,7 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
 // @codekit-prepend "site/components/home-view-component.js"
 // @codekit-prepend "site/components/youtube-player-component.js"
 // @codekit-prepend "site/components/section-slider-navigation-component.js"
+// @codekit-prepend "site/components/olapic-feed-component.js"
 
 // @codekit-prepend "site/views/header-view.js"
 // @codekit-prepend "site/views/page-view.js"

@@ -116,13 +116,6 @@
 
     </div>
 
-
-    <div id="nh-olapic-feed" class="olapic-section">
-
-      <!-- Here will be displayed olapic feed   -->
-    </div>
-
-
     <div class="video-player-wrapper" data-component="youtube-player-component">
 
         <div class="player-active"> <!-- Player FullScreen -->

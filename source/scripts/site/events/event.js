@@ -14,7 +14,7 @@ site.events.event_base = {
 
   'PAGE_SHOWN'              : 'event.page.shown',
   'MAPS_API_READY'          : 'event.maps.api.ready',
-  'LOCATION_UPDATE'         : 'event.location.update',
+  // 'LOCATION_UPDATE'         : 'event.location.update',
   'IMAGE_LOADED'            : 'event.image.loaded',
 
   'OVERLAY_HIDE_REQUEST'              : 'event.overlay.hide.request',

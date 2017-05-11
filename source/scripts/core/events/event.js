@@ -23,6 +23,8 @@ el.core.events.event = {
   APP_INIT                     : 'event.app.init',
   YOUTUBE_API_LOADED           : 'event.youtube.api.loaded',
   PLAY_VIDEO                   : 'event.play.video',
+  LOCATION_UPDATE              : 'event.location.update',
+  PAGE_VIEW                    : 'event.page.view',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };
