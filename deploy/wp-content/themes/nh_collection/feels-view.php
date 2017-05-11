@@ -15,7 +15,7 @@
 
         <ul class="slider-wrapper">
           <!-- item 1 | feel the place -->
-          <li class="feel-item" data-yt-id="xMotTAO2FqU">
+          <li class="feel-item" data-action="play-video" data-yt-id="xMotTAO2FqU">
             <div class="overlay-element">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -30,7 +30,7 @@
           </li>
 
           <!-- item 2 | feel inspired -->
-          <li class="feel-item" data-yt-id="1v7rafzqkRU">
+          <li class="feel-item" data-action="play-video" data-yt-id="1v7rafzqkRU">
             <div class="overlay-element inverted">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -45,7 +45,7 @@
           </li>
 
           <!-- item 3 | feel unique -->
-          <li class="feel-item" data-yt-id="moZJf5kKwsY">
+          <li class="feel-item" data-action="play-video" data-yt-id="moZJf5kKwsY">
             <div class="overlay-element">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -60,7 +60,7 @@
           </li>
 
           <!-- item 4 | feel beyond -->
-          <li class="feel-item">
+          <li class="feel-item" data-action="open-section" data-section="feel-beyond">
             <div class="overlay-element inverted">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -81,16 +81,20 @@
       <div class="feel-beyond-section" data-component="section-slider-navigation">
         <div class="video-list">
           <ul class="slider-wrapper">
-            <li>
+            <!-- SLIDE 1 -->
+            <li class="video-slide">
+
               <div class="list-item video-list-item">
                 <div class="relative-wrapper">
                   <div class="img-wrapper">
-                    <img src="http://placehold.it/400x300/222" alt="">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
                   </div>
                   <div class="absolute-wrapper">
-                    <p class="label-font">Feel welcomed</p>
-                    <p class="label-font">Lorem ipsum dolor sit amet</p>
-                    <button class="block-button play-button"><span class="icon icon-play_icon"></span></button>
+                    <div class="container">
+                      <p class="label-font">Feel welcomed</p>
+                      <p class="label-font">Lorem ipsum dolor sit amet</p>
+                      <button class="block-button play-button" data-action="play-video" data-yt-id="0vxvjscFpmk"><span class="icon icon-play_icon"></span></button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -98,17 +102,117 @@
               <div class="list-item video-list-item">
                 <div class="relative-wrapper">
                   <div class="img-wrapper">
-                    <img src="http://placehold.it/400x300/333" alt="">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
                   </div>
                   <div class="absolute-wrapper">
                     <p class="label-font">Feel welcomed</p>
                     <p class="label-font">Lorem ipsum dolor sit amet</p>
-                    <button class="block-button play-button"><span class="icon icon-play_icon"></span></button>
+                    <button class="block-button play-button" data-action="play-video" data-yt-id="1v7rafzqkRU"><span class="icon icon-play_icon"></span></button>
                   </div>
                 </div>
               </div>
-
             </li>
+            <!-- SLIDE 1 -->
+
+            <!-- SLIDE 1 -->
+            <li class="video-slide">
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <div class="container">
+                      <p class="label-font">Feel welcomed</p>
+                      <p class="label-font">Lorem ipsum dolor sit amet</p>
+                      <button class="block-button play-button" data-action="play-video" data-yt-id="moZJf5kKwsY"><span class="icon icon-play_icon"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <p class="label-font">Feel welcomed</p>
+                    <p class="label-font">Lorem ipsum dolor sit amet</p>
+                    <button class="block-button play-button" data-action="play-video" data-yt-id="1v7rafzqkRU"><span class="icon icon-play_icon"></span></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- SLIDE 1 -->
+
+            <!-- SLIDE 1 -->
+            <li class="video-slide">
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <div class="container">
+                      <p class="label-font">Feel welcomed</p>
+                      <p class="label-font">Lorem ipsum dolor sit amet</p>
+                      <button class="block-button play-button" data-action="play-video" data-yt-id="moZJf5kKwsY"><span class="icon icon-play_icon"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <p class="label-font">Feel welcomed</p>
+                    <p class="label-font">Lorem ipsum dolor sit amet</p>
+                    <button class="block-button play-button" data-action="play-video" data-yt-id="1v7rafzqkRU"><span class="icon icon-play_icon"></span></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- SLIDE 1 -->
+
+            <!-- SLIDE 1 -->
+            <li class="video-slide">
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <div class="container">
+                      <p class="label-font">Feel welcomed</p>
+                      <p class="label-font">Lorem ipsum dolor sit amet</p>
+                      <button class="block-button play-button" data-action="play-video" data-yt-id="moZJf5kKwsY"><span class="icon icon-play_icon"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="list-item video-list-item">
+                <div class="relative-wrapper">
+                  <div class="img-wrapper">
+                    <img src="http://lorempixel.com/400/300/nature/" alt="">
+                  </div>
+                  <div class="absolute-wrapper">
+                    <p class="label-font">Feel welcomed</p>
+                    <p class="label-font">Lorem ipsum dolor sit amet</p>
+                    <button class="block-button play-button" data-action="play-video" data-yt-id="1v7rafzqkRU"><span class="icon icon-play_icon"></span></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- SLIDE 1 -->
+
           </ul>
         </div>
       </div>

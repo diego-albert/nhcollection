@@ -12,6 +12,7 @@
 				height: 100%;
 				position: relative;
 				overflow: hidden;
+				// display: none;
 				.slider-wrapper,
 				.slick-track,
 				.slick-list {
@@ -29,14 +30,17 @@
 			}
 			.feel-beyond-section {
 				position: absolute;
-				z-index: 5;
+				z-index: -1;
+				// z-index: 5;
 				width: 100%;
 				height: 100%;
-				top: 0;
+				top: 20px;
 				left: 0;
 				bottom: 0;
 				right: 0;
 				background-color: $BLACK;
+				opacity: 0;
+
 				.video-list {
 					width: 100%;
 					height: 100%;

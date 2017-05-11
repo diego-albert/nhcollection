@@ -239,13 +239,16 @@
 			text-align: center;
 			color: $NH_BROWN_COLOR;
 			transform: translateY(-50%);
-			.label-font {
-				&:first-child {
-					opacity: 0.75;
+			.container {
+				position: relative;
+					.label-font {
+					&:first-child {
+						opacity: 0.75;
+					}
 				}
-			}
-			.block-button {
-				margin-top: 10px;
+				.block-button {
+					margin-top: 10px;
+				}
 			}
 		}
 	}
