@@ -36,8 +36,8 @@
 			img {
 				width: auto;
 				height: auto;
-				min-width: 100%;
-				min-height: 100%;
+				min-width: 102%;
+				min-height: 102%;
 				position: absolute;
 				left: 50%;
 				top: 50%;
@@ -50,13 +50,18 @@
 			z-index: 2;
 			top: 50%;
 			left: 50%;
-			padding-bottom: 30px;
 			text-align: left;
 			transform: translate(-50%, -50%);
 
 			&.white {
 				color: $WHITE;
 				transition: color $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.5 ease-in;
+			}
+			&.voyages-info {
+				color: $WHITE;
+				width: 100%;
+				text-align: center;
+				padding: 0 10%;
 			}
 		}
 
@@ -224,8 +229,8 @@
 			img {
 				width: auto;
 				height: auto;
-				min-width: 100%;
-				min-height: 100%;
+				min-width: 102%;
+				min-height: 102%;
 				position: absolute;
 				left: 50%;
 				top: 50%;
