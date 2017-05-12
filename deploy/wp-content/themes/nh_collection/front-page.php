@@ -27,7 +27,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span><br />feelling<br /> collectors</p>
+								<p class="navigation--header"><span class="pre">The</span>feelling<br /> collectors</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
@@ -47,7 +47,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span><br />experiences</p>
+								<p class="navigation--header"><span class="pre lower">The</span>experiences</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
@@ -79,7 +79,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span><br />feels</p>
+								<p class="navigation--header"><span class="pre">The</span>feels</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
@@ -104,7 +104,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span><br />dictionary</p>
+								<p class="navigation--header"><span class="pre">The</span>dictionary</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
@@ -112,7 +112,7 @@
 				</span>
 			</a>
 			<!-- item-2 -->
-			<a href="#" class="home-anchor">
+			<a href="<?php echo $home_url . '/voyages/'; ?>" class="home-anchor">
 				<span class="section-item">
 					<div class="overlay-element inverted">
 						<div class="relative-wrapper">
@@ -124,7 +124,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span><br />voyages</p>
+								<p class="navigation--header"><span class="pre lower">The</span>voyages</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
