@@ -30,6 +30,24 @@
 	@extend %chronicle-semibold-font;
 	@include font-size(45px, 45px);
 	font-weight: normal;
+	@media (max-width: $BREAKPOINT_L) {
+		@include font-size(35px, 32px);
+	}
+	@media (max-width: $BREAKPOINT_M) {
+		@include font-size(25px, 22px);
+	}
+}
+
+.highlight-small-text {
+	@extend %chronicle-semibold-font;
+	@include font-size(25px, 1em);
+	font-weight: normal;
+	@media (max-width: $BREAKPOINT_L) {
+		@include font-size(20px, 1em);
+	}
+	@media (max-width: $BREAKPOINT_M) {
+		@include font-size(18px, 1em);
+	}
 }
 
 // Texto para cabeceras en pre-menus
@@ -140,6 +158,9 @@
 .label-font {
 	@extend %gotham-book-font;
 	@include font-size(15px, 25px);
+	@media (max-width: $BREAKPOINT_M) {
+		@include font-size(12px, 20px);
+	}
 }
 
 // Texto para block buttons

@@ -2491,7 +2491,7 @@
 	"\/scripts\/plugins\/jquery.smoothState.js": {
 		"ft": 64,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/scripts\/plugins\/jquery.smoothState-min.js",
 		"oF": 0,
 		"sC": 0,
@@ -2529,6 +2529,15 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/scripts\/site\/components\/main-menu-component-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"\/scripts\/site\/components\/section-slider-navigation-component.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/scripts\/site\/components\/section-slider-navigation-component-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -3479,6 +3488,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/styles\/views\/_feels.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/views\/_feels.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/styles\/views\/_home.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -3514,6 +3536,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/styles\/views\/_styleguide.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/styles\/views\/_voyages.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/styles\/views\/_voyages.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

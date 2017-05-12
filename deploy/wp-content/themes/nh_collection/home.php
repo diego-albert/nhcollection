@@ -23,9 +23,11 @@
             </div>
             <div class="section-tags">
               <div class="container">
-                <p>Tags</p>
+                <p class="highlight-small-text">Tags</p>
                 <ul>
-                  <li>#People</li>
+                  <li><button class="block-button tag-button"><span class="label-font">#People</span></button></li>
+                  <li><button class="block-button tag-button"><span class="label-font">#Places</span></button></li>
+                  <li><button class="block-button tag-button"><span class="label-font">#Moments</span></button></li>
                 </ul>
               </div>
             </div>
