@@ -1,0 +1,70 @@
+#nh-collection {
+
+	#voyages {
+		position: relative;
+		.main-section {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			.section-navigation {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+				.slider-wrapper,
+				.slick-track,
+				.slick-list {
+					width: 100%;
+					height: 100%;
+
+					li {
+						display: block;
+						float: left;
+						height: 100%;
+						width: 100px;
+						cursor: pointer;
+						.post-item {
+							width: 100%;
+							height: 50%;
+							.voyages-info {
+								.post-title {
+									margin: 10px 0 15px;
+								}
+							}
+
+						}
+						&.blog-info {
+							cursor: inherit;
+							background-color: $WHITE;
+							.section-hero,
+							.section-tags {
+								position: relative;
+								width: 100%;
+								height: 50%;
+								.container {
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%,-50%);
+								}
+							}
+							.section-hero {
+								color: $NH_RED_COLOR;
+
+							}
+							.section-tags {
+
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+
+
+	}
+
+}

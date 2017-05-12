@@ -28,4 +28,6 @@ add_action( 'wp_default_scripts', function( $scripts ) {
     }
 } );
 
+add_theme_support( 'post-thumbnails' );
+
 ?>
