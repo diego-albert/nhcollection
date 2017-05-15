@@ -35,8 +35,15 @@
                       'exclude' => array(1)
                   ) );
 
+                  $current_cat = get_the_category();
+                  // print_r( $categories );
+                  // echo $current_cat[0]  -> name;
+
                   foreach ( $categories as $category ) {
-                      printf( '<li class="tag-item"><a href="%1$s" class="block-button tag-button"><span class="label-font">#%2$s</span></a></li>',
+
+                    $className =  ( $current_cat[0]->name === $category->name ) ? 'active' : '';
+
+                      printf( '<li class="tag-item"><a href="%1$s" class="block-button tag-button '.$className.'"><span class="label-font">#%2$s</span></a></li>',
                           esc_url( get_category_link( $category->term_id ) ),
                           esc_html( $category->name )
                       );

@@ -18,8 +18,10 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   this.$videoSlide = this.$slider.find('.video-slide');
   this.$playVideoBtn = this.$slider.find('.block-button.play-button');
 
-  this.defaultSliderPosition = 1;
   this.enableSlider = true;
+  this.centerMode = this.$el.data('align-center');
+  this.slidesToShow = (this.centerMode) ? 3 : 3.1;
+  this.defaultSliderPosition = (this.centerMode) ? 1 : 0;
 
   this._register();
 
@@ -40,19 +42,21 @@ site.components.SectionSliderNavigation.prototype._init = function(e) {
 
   this.$slider.slick({
     infinite: false,
-    slidesToShow: 3,
+    slidesToShow: this.slidesToShow,
     slidesToScroll: 1,
     arrows: false,
-    centerMode: true,
+    centerMode: this.centerMode,
     edgeFriction: 0,
     initialSlide: 0,
     refresh: true
   });
 
+  console.log( '***',this.defaultSliderPosition, this.slidesToShow );
+
   this.$slider.slick('slickGoTo', this.defaultSliderPosition );
 
   this.$slider.on('afterChange', function(event, slick){
-    console.log('transition finished! enable slider true!');
+    // console.log('transition finished! enable slider true!');
     that.enableSlider = true;
   });
 
@@ -93,12 +97,13 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
       currentSlide = this.$slider.slick('slickCurrentSlide'),
       totalSlides = this.$slider.slick("getSlick").slideCount;
 
-  // console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
+  console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
 
   // console.log( '++++', this.enableSlider );
 
   if ( !target.hasClass('slick-active') && this.enableSlider ){
 
+    if ( this.centerMode ) {
 
       if ( currentSlide+2 ===  targetSlider ) { // Scroll in Right way
 
@@ -119,15 +124,36 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
 
           this.enableSlider = false;
           this.$slider.slick( 'slickGoTo', currentSlide-1 );
+          // this.$slider.find('.slick-list').velocity({ 'left' : 0 });
 
           if ( currentSlide === 2 && targetSlider === 0 ) {
 
              this.$slider.find('.slick-list').velocity({ 'left' : '-50px' });
 
+          } else if ( currentSlide + 2 === totalSlides ) {
+
+              this.$slider.find('.slick-list').velocity({ 'left' : 0 });
+
           }
 
       }
 
+    } else {
+
+      if ( currentSlide < targetSlider ) { // Scroll in Right way
+
+        this.enableSlider = false;
+        this.$slider.slick( 'slickGoTo', currentSlide+1 );
+
+      } if ( currentSlide > targetSlider ) {
+
+        this.enableSlider = false;
+        this.$slider.slick( 'slickGoTo', currentSlide-1 );
+
+      }
+
+
+    }
 
 
   }
