@@ -1,14 +1,19 @@
 
 <?php get_header(); ?>
 
+<?php
+  $category = get_queried_object();
+  $centerMode = ($category->count > 6) ? 'true' : 'false';
+?>
+
 
 <div id="voyages" class="fullscreen-js">
 
     <div class="main-section">
 
-      <div class="section-navigation"
+      <div class="section-navigation <?php echo $centerMode; ?>"
         data-component="section-slider-navigation"
-        data-align-center="true">
+        data-align-center="<?php echo $centerMode; ?>">
 
         <!-- Listado de posts -->
         <?php if ( have_posts() ) : ?>

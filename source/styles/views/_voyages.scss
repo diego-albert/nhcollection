@@ -12,9 +12,11 @@
 				height: 100%;
 				position: relative;
 				overflow: hidden;
-				.slick-list {
-					position: relative;
-					left: -50px;
+				&.true {
+					.slick-list {
+						position: relative;
+						left: -50px;
+					}
 				}
 				.slider-wrapper,
 				.slick-track,

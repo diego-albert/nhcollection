@@ -1,14 +1,18 @@
 
 <?php get_header(); ?>
 
+<?php
+  $count_posts = wp_count_posts()->publish;
+  $centerMode = ($count_posts > 6) ? 'true' : 'false';
+?>
 
 <div id="voyages" class="fullscreen-js">
 
     <div class="main-section">
 
-      <div class="section-navigation"
+      <div class="section-navigation <?php echo $centerMode; ?>"
         data-component="section-slider-navigation"
-        data-align-center="true">
+        data-align-center="<?php echo $centerMode; ?>">
 
         <!-- Listado de posts -->
         <?php if ( have_posts() ) : ?>
