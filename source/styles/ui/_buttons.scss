@@ -30,7 +30,7 @@
 		color: $WHITE;
 		// border: solid 2px $NH_RED_COLOR;
 		transition: color $BTN_LABEL_TRANSITION ease;
-		-webkit-backface-visibility: hidden;
+		box-sizing: border-box;
 
 		&:before,
 		&:after {
@@ -39,9 +39,9 @@
 			position: absolute;
 			background-color: $NH_RED_COLOR;
 			z-index: 0;
-			height: 100%;
-			width: 55%;
-			top: 0;
+			height: 102%;
+			width: 53%;
+			top: -1%;
 			transition: width $BTN_HOVER_TRANSITION ease;
 		}
 
@@ -83,6 +83,11 @@
 					width: 51%;
 				}
 			}
+			&.active {
+				border: solid 2px $NH_BROWN_COLOR;
+				font-weight: bold;
+			}
+
 		}
 	}
 
