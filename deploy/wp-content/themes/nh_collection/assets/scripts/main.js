@@ -9463,6 +9463,10 @@ site.components.MainMenuComponent.prototype._init = function(data) {
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
         break;
 
+    default: // Blog section
+        this.menuEnable = false;
+        this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+
   }
 
 }
@@ -9692,6 +9696,11 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   this.$videoSlide = this.$slider.find('.video-slide');
   this.$playVideoBtn = this.$slider.find('.block-button.play-button');
 
+  this.enableSlider = true;
+  this.centerMode = this.$el.data('align-center');
+  this.slidesToShow = (this.centerMode) ? 3 : 3.1;
+  this.defaultSliderPosition = (this.centerMode) ? 1 : 0;
+
   this._register();
 
   this._init();
@@ -9707,16 +9716,27 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
 
 site.components.SectionSliderNavigation.prototype._init = function(e) {
 
+  var that = this;
+
   this.$slider.slick({
     infinite: false,
-    slidesToShow: 3.1,
+    slidesToShow: this.slidesToShow,
     slidesToScroll: 1,
     arrows: false,
-    certerMode: true,
-    edgeFriction: 0
+    centerMode: this.centerMode,
+    edgeFriction: 0,
+    initialSlide: 0,
+    refresh: true
   });
 
-  this.$slider.slick('setPosition', 2);
+  console.log( '***',this.defaultSliderPosition, this.slidesToShow );
+
+  this.$slider.slick('slickGoTo', this.defaultSliderPosition );
+
+  this.$slider.on('afterChange', function(event, slick){
+    // console.log('transition finished! enable slider true!');
+    that.enableSlider = true;
+  });
 
 }
 
@@ -9750,16 +9770,69 @@ site.components.SectionSliderNavigation.prototype._displaySubSection = function(
 
 site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
 
-  // console.log(e.currentTarget);
   var target = $(e.currentTarget),
-      currentSlide = this.$slider.slick('slickCurrentSlide');
+      targetSlider = target.data('slick-index'),
+      currentSlide = this.$slider.slick('slickCurrentSlide'),
+      totalSlides = this.$slider.slick("getSlick").slideCount;
 
-  if ( !target.hasClass('slick-active') ){
-    // console.log( target.data('slick-index') );
+  console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
 
-    var setPos = ( currentSlide > target.data('slick-index') ) ? currentSlide-1 : currentSlide+1;
+  // console.log( '++++', this.enableSlider );
 
-    this.$slider.slick( 'slickGoTo', setPos );
+  if ( !target.hasClass('slick-active') && this.enableSlider ){
+
+    if ( this.centerMode ) {
+
+      if ( currentSlide+2 ===  targetSlider ) { // Scroll in Right way
+
+        this.enableSlider = false;
+        this.$slider.slick( 'slickGoTo', currentSlide+1 );
+
+        if ( currentSlide === 1 ) { // If we are in default Pos, and we want to start to navigate
+
+            this.$slider.find('.slick-list').velocity({ 'left' : 0 });
+
+        } else if ( targetSlider + 1 === totalSlides ) {
+
+            this.$slider.find('.slick-list').velocity({ 'left' : '50px' });
+
+        }
+
+      } else if ( currentSlide-2 ===  targetSlider ) { // Scroll in left way
+
+          this.enableSlider = false;
+          this.$slider.slick( 'slickGoTo', currentSlide-1 );
+          // this.$slider.find('.slick-list').velocity({ 'left' : 0 });
+
+          if ( currentSlide === 2 && targetSlider === 0 ) {
+
+             this.$slider.find('.slick-list').velocity({ 'left' : '-50px' });
+
+          } else if ( currentSlide + 2 === totalSlides ) {
+
+              this.$slider.find('.slick-list').velocity({ 'left' : 0 });
+
+          }
+
+      }
+
+    } else {
+
+      if ( currentSlide < targetSlider ) { // Scroll in Right way
+
+        this.enableSlider = false;
+        this.$slider.slick( 'slickGoTo', currentSlide+1 );
+
+      } if ( currentSlide > targetSlider ) {
+
+        this.enableSlider = false;
+        this.$slider.slick( 'slickGoTo', currentSlide-1 );
+
+      }
+
+
+    }
+
 
   }
 }
