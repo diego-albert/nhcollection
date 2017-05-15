@@ -47,6 +47,10 @@ site.components.MainMenuComponent.prototype._init = function(data) {
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
         break;
 
+    default: // Blog section
+        this.menuEnable = false;
+        this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+
   }
 
 }
