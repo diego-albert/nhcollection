@@ -9729,6 +9729,7 @@ site.components.SectionSliderNavigation.prototype._init = function(e) {
     centerMode: this.centerMode,
     edgeFriction: 0,
     initialSlide: 0,
+    draggable: false,
     refresh: true
   });
 

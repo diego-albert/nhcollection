@@ -6,6 +6,11 @@
 			position: relative;
 			width: 100%;
 			height: 100%;
+			background-color: $NH_BG_COLOR;
+			background-image: url("#{$url_prefix_full}/assets/images/nh_background.jpg");
+			background-size: contain;
+			background-position: right center;
+			background-repeat: no-repeat;
 
 			.section-navigation {
 				width: 100%;
