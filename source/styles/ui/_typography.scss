@@ -48,6 +48,9 @@
 	@media (max-width: $BREAKPOINT_M) {
 		@include font-size(18px, 1em);
 	}
+	&.roman {
+		@extend %chronicle-roman-font;
+	}
 }
 
 // Texto para cabeceras en pre-menus
