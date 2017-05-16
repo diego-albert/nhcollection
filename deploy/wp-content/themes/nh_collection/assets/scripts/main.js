@@ -9453,17 +9453,20 @@ site.components.MainMenuComponent.prototype._init = function(data) {
   switch(pageView) {
 
     case 'home':
+        $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('disabled');
         break;
 
     case 'feeling-collectors':
     case 'feels':
+        $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
         break;
 
     default: // Blog section
+        $('body').addClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
 

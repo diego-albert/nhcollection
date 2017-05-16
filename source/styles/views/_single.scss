@@ -30,10 +30,50 @@
 					.main-info {
 						text-align: center;
 						padding: 55px 0 45px;
+						color: $NH_BROWN_COLOR;
 						.post-header {
 							color: $NH_BROWN_COLOR;
 						}
+						.data-info {
+							display: block;
+							padding: 25px 0 30px;
+							font-weight: bold;
+							p {
+								position: relative;
+								display: inline-block;
+								padding: 0 30px;
+								&:before {
+									content: '';
+									display: inline-block;
+									height: 15px;
+									width: 0;
+									border-right: solid 2px $NH_RED_COLOR;
+									position: absolute;
+									left: 0;
+									top: 5px;
+								}
+							}
+							ul.post-categories {
+								@extend .label-font;
+							  display: inline-block;
+							  padding: 0 30px;
+							}
+						}
 
+					}
+
+					.content {
+						color: $NH_BROWN_COLOR;
+						.wpb_single_image {
+							margin-bottom: 5px;
+						}
+						.small-m-bottom {
+							margin-bottom: 15px;
+						}
+						.full-width {
+							width: 100%;
+							height: auto;
+						}
 					}
 				}
 

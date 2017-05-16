@@ -155,6 +155,9 @@
 .caption {
 	@extend %chronicle-semibold-font;
 	@include font-size(16px, 20px);
+	&.italic {
+		@extend %chronicle-italic-font;
+	}
 }
 
 // Video Gallery names
@@ -164,6 +167,14 @@
 	@media (max-width: $BREAKPOINT_M) {
 		@include font-size(12px, 20px);
 	}
+}
+
+// Blog post body font
+.blog-body-font {
+	@extend %gotham-book-font;
+	@include font-size(16px, 20px);
+	text-align: justify;
+	font-weight: normal;
 }
 
 // Texto para block buttons
