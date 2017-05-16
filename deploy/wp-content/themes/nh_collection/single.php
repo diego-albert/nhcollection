@@ -3,6 +3,17 @@
 
 <div id="post-view">
 
+		<a href="<?php echo get_home_url() . '/voyages/'; ?>">
+			<div class="vertical-button close-video">
+	      <div class="hamburger-icon open">
+	        <span class="line line-1"></span>
+	        <span class="line line-2"></span>
+	        <span class="line line-3"></span>
+	        <span class="line line-4"></span>
+	      </div>
+	    </div>
+	  </a>
+
     <div class="main-section">
 
 		<?php if ( have_posts() ) : the_post(); ?>
@@ -43,39 +54,48 @@
 
 		  </section>
 
-		  <section>
-
-				<?php
-//for use in the loop, list 5 post titles related to first tag on current post
-$tags = wp_get_post_tags($post->ID);
-
-if ($tags) {
-
-	echo 'Related Posts';
-	$first_tag = $tags[0]->term_id;
-
-	$args=array(
-		'tag__in' => array($first_tag),
-		'post__not_in' => array($post->ID),
-		'posts_per_page'=>5,
-		'caller_get_posts'=>1
-	);
-
-$my_query = new WP_Query($args);
-if( $my_query->have_posts() ) {
-
-while ($my_query->have_posts()) : $my_query->the_post(); ?>
-
-	<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-
-<?php
-endwhile;
-}
-wp_reset_query();
-}
-?>
+		  <section class="related-post">
+		  	<div class="post-wrapper">
 
 
+					<?php
+
+						$category_obj = get_the_category();
+						$category = $category_obj[0]->slug;
+
+						$args = array(
+				        'post_type' 		 => 'post',
+				        'posts_per_page' => 3,
+				        'category_name'  => $category,
+				        'post__not_in' 	 => array( get_the_ID() ),
+				    );
+
+				    $query = new WP_Query( $args );
+
+					?>
+
+					<?php if( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
+
+						<div class="post-item">
+	            <a href="<?php the_permalink(); ?>">
+	            <div class="overlay-element">
+	              <div class="relative-wrapper">
+	                <div class="img-wrapper">
+	                  <?php the_post_thumbnail(); ?>
+	                </div>
+	                <div class="header-wrapper voyages-info">
+	                  <p class="label-font"><?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?></p>
+	                  <p class="highlight-medium-text post-title"><?php the_title(); ?></span></p>
+	                  <p class="label-font"><?php the_date('d / m / Y'); ?></span></p>
+	                </div>
+	              </div>
+	            </div>
+	            </a>
+	          </div>
+
+					<?php endwhile; endif; wp_reset_postdata(); ?>
+
+				</div>
 		  </section>
 
 		<?php endif; ?>
