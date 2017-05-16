@@ -1,13 +1,33 @@
 <?php
     global $post;
     $post_slug=$post->post_name;
+    $post_title=$post->post_title;
 ?>
 <!DOCTYPE html>
 <html lang="<?php bloginfo('language'); ?>">
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <title><?php bloginfo('name'); ?></title>
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <meta property="og:title" content="<?php echo $post_title; ?>" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<?php echo get_home_url(); ?>" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="NH Collection">
+  <meta name="twitter:title" content="<?php echo $post_title ?>">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
+
   <?php wp_head(); ?>
 </head>
 

@@ -75,6 +75,22 @@
 							height: auto;
 						}
 					}
+
+					.share {
+						width: 100%;
+						padding: 25px 0 70px;
+						text-align: center;
+						color: $NH_BROWN_COLOR;
+						.social {
+							margin: 30px 30px 0;
+							font-size: 28px;
+							display: inline-block;
+							transition: color $BTN_HOVER_TRANSITION ease;
+							&:hover {
+								color: $NH_DARKRED_COLOR;
+							}
+						}
+					}
 				}
 
 			}

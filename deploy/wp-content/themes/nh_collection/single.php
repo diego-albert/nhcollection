@@ -50,6 +50,15 @@
 			    	<?php the_content(); ?>
 			    </div>
 
+			    <div class="share">
+
+			    	<p class="highlight-small-text">Share</p>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" class="social small-button shre-fc"><span class="icon-facebook"></span></a>
+						<a href="https://twitter.com/home?status=<?php the_permalink(); ?>" target="_blank" class="social small-button shre-tw"><span class="icon-twitter"></span></a>
+						<a href="#" target="_blank" class="social small-button"><span class="icon-instagram"></span></a>
+
+			    </div>
+
 			  </div>
 
 		  </section>
