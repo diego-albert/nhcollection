@@ -3,16 +3,15 @@
 
 <div id="post-view">
 
-		<a href="<?php echo get_home_url() . '/voyages/'; ?>">
-			<div class="vertical-button close-video">
-	      <div class="hamburger-icon open">
-	        <span class="line line-1"></span>
-	        <span class="line line-2"></span>
-	        <span class="line line-3"></span>
-	        <span class="line line-4"></span>
-	      </div>
-	    </div>
-	  </a>
+
+		<a href="<?php echo get_home_url() . '/voyages/'; ?>" class="vertical-button close-video">
+      <div class="hamburger-icon open">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+        <span class="line line-4"></span>
+      </div>
+    </a>
 
     <div class="main-section">
 
