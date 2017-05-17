@@ -81,6 +81,9 @@
       <!-- feel beyond section -->
       <div class="feel-beyond-section" data-component="section-slider-navigation" data-align-center="true">
         <div class="video-list">
+
+          <span class="arrow-right-way icon-arrow_icon"></span>
+
           <ul class="slider-wrapper">
             <!-- SLIDE 1 -->
             <li class="video-slide">

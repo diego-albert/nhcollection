@@ -17,12 +17,28 @@
 				height: 100%;
 				position: relative;
 				overflow: hidden;
+				.arrow-right-way {
+					display: none;
+					position: absolute;
+					top: 50%;
+					right: 15px;
+					z-index: 1;
+					font-size: 1.5em;
+					color: $NH_RED_COLOR;
+					transform: translateY(-50%);
+					animation: scrollarrownavigation 2s infinite;
+				}
 				&.true {
 					.slick-list {
 						position: relative;
 						left: -50px;
 					}
+					.arrow-right-way {
+						display: block;
+					}
+
 				}
+
 				.slider-wrapper,
 				.slick-track,
 				.slick-list {
@@ -97,6 +113,12 @@
 
 
 
+	}
+
+	@keyframes scrollarrownavigation {
+	  0%   { right: 15px; }
+	  50%   { right: 5px; }
+	  100% { right: 15px; }
 	}
 
 }

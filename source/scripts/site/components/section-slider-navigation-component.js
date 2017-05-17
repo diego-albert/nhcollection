@@ -110,6 +110,7 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
 
         this.enableSlider = false;
         this.$slider.slick( 'slickGoTo', currentSlide+1 );
+        this.$el.find('.arrow-right-way').velocity({ opacity: 0 }, { display: "none" });
 
         if ( currentSlide === 1 ) { // If we are in default Pos, and we want to start to navigate
 

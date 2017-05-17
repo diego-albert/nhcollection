@@ -14,6 +14,10 @@
         data-component="section-slider-navigation"
         data-align-center="<?php echo $centerMode; ?>">
 
+
+        <span class="arrow-right-way icon-arrow_icon"></span>
+
+
         <!-- Listado de posts -->
         <?php if ( have_posts() ) : ?>
 

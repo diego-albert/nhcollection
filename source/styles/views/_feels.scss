@@ -49,6 +49,17 @@
 					width: 100%;
 					height: 100%;
 					position: relative;
+					.arrow-right-way {
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 15px;
+						z-index: 1;
+						font-size: 1.5em;
+						color: $NH_RED_COLOR;
+						transform: translateY(-50%);
+						animation: scrollarrownavigation 2s infinite;
+					}
 					.slick-list {
 						position: relative;
 						left: -50px;
