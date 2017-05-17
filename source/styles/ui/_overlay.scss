@@ -41,7 +41,7 @@
 				position: absolute;
 				left: 50%;
 				top: 50%;
-				transform: translate(-50%,-50%);
+				transform: translate3d(0px, 0px, 0px) translate(-50%,-50%) scale(1);
 				transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease;
 			}
 		}
@@ -100,7 +100,7 @@
 			}
 			.img-wrapper {
 				img {
-					transform: translate(-50%,-50%) scale(1.1);
+					transform: translate3d(0px, 0px, 0px) translate(-50%,-50%) scale(1.1);
 				}
 			}
 			.overlay-ribond {
