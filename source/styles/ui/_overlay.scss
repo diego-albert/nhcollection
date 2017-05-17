@@ -23,9 +23,9 @@
 			top: 0;
 			left: -50%;
 			transform: skew(30deg);
-			background-color: $NH_DARKRED_COLOR;
+			background-color: $NH_OVERLAY_COLOR;
 			mix-blend-mode: multiply;
-			opacity: 0.75;
+			opacity: 0.85;
 			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
 		}
 
@@ -42,6 +42,7 @@
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%,-50%);
+				transition: transform $BTN_HOVER_TRANSITION $BTN_TRANSITION_DELAY ease;
 			}
 		}
 
@@ -67,11 +68,13 @@
 
 		.overlay-ribond {
 			position: absolute;
+			opacity: 0.75;
 			top: 0;
 			left: 0;
 			z-index: 2;
-			width: 50%;
-			padding-bottom: 50%;
+			width: 42%;
+			max-width: 270px;
+			padding-bottom: 38%;
 			background-image: url('#{$url_prefix_full}/assets/images/overlay-ribond.png');
 			background-size: 100% auto;
 			background-position: left top;
@@ -94,6 +97,11 @@
 		.relative-wrapper {
 			&:before {
 				width: 250%;
+			}
+			.img-wrapper {
+				img {
+					transform: translate(-50%,-50%) scale(1.1);
+				}
 			}
 			.overlay-ribond {
 				transform: translate(0%, 0%);
