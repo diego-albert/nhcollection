@@ -6,6 +6,8 @@
 
     </div><!-- Close #page -->
 
+    <div class="noise"></div>
+
     <?php wp_footer(); ?>
   </body>
 </html>
