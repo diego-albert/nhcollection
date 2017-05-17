@@ -27,7 +27,7 @@
 								</picture>
 							</div>
 							<div class="header-wrapper white">
-								<p class="navigation--header"><span class="pre">The</span>feelling<br /> collectors</p>
+								<p class="navigation--header"><span class="pre">The</span>feeling<br /> collectors</p>
 							</div>
 							<div class="overlay-ribond"></div>
 						</div>
