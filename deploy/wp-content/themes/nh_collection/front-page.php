@@ -62,7 +62,11 @@
 			<!-- item-1 -->
 			<div class="section-item">
 				<div class="brand-wrapper">
-					<img src="<?php echo get_template_directory_uri() . '/assets/images/homepage/nhcollection_logo.png'?>" alt="NH Collection">
+					<div class="nhbrand-wrapper">
+						<div class="content">
+							<img src="<?php echo get_template_directory_uri() . '/assets/images/homepage/nhcollection_logo.png'?>" alt="NH Collection">
+						</div>
+					</div>
 					<h1 class="main--header">feel <br /><span>the extraordinary</span></h1>
 				</div>
 			</div>
