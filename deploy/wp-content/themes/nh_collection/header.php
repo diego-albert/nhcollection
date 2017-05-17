@@ -1,8 +1,4 @@
-<?php
-    global $post;
-    $post_slug=$post->post_name;
-    $post_title=$post->post_title;
-?>
+
 <!DOCTYPE html>
 <html lang="<?php bloginfo('language'); ?>">
 <head>
@@ -12,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-  <meta property="og:title" content="<?php echo $post_title; ?>" />
+  <meta property="og:title" content="<?php wp_title(''); ?>" />
   <meta property="og:description" content="" />
   <meta property="og:image" content="" />
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
@@ -21,7 +17,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="NH Collection">
-  <meta name="twitter:title" content="<?php echo $post_title ?>">
+  <meta name="twitter:title" content="<?php wp_title(''); ?>">
   <meta name="twitter:description" content="">
   <meta name="twitter:image" content="">
 
@@ -38,7 +34,7 @@
     <div id="nh-main-content">
 
     <nav class="main-menu"
-      data-page-view="<?php echo $post_slug; ?>"
+      data-page-view="<?php wp_title(''); ?>"
       data-component="main-menu-component"
     >
 

@@ -29,4 +29,30 @@ add_action( 'wp_default_scripts', function( $scripts ) {
 // Enable Thumbnails Images
 add_theme_support( 'post-thumbnails' );
 
+
+
+/**
+ * Customize the title for the home page, if one is not set.
+ *
+ * @param string $title The original title.
+ * @return string The title to use.
+ */
+function wpdocs_hack_wp_title_for_home( $title )
+{
+  if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    $title = __( 'home', 'textdomain' );
+  } else if ( is_category() ) {
+    $title = 'category';
+  } else {
+    $title = preg_replace('/\s+/', '', $title);
+    $title = strtolower($title);
+  }
+  return $title;
+}
+
+add_filter( 'wp_title', 'wpdocs_hack_wp_title_for_home' );
+
+
+
+
 ?>
