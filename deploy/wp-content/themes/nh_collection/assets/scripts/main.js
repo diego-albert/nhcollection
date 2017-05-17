@@ -10032,7 +10032,7 @@ site.views.Page.prototype.initPage = function() {
 
   that.$mainContent.removeClass('is-exiting').addClass('is-entering');
 
-  if ( pageName == 'feels' || pageName == 'feeling-collectors') {
+  if ( pageName == 'feels' || pageName == 'feelingcollectors') {
 
     that.$olapicFeed.velocity({
       opacity: 1,
