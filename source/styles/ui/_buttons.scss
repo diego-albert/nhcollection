@@ -43,6 +43,7 @@
 			width: 53%;
 			top: -1%;
 			transition: width $BTN_HOVER_TRANSITION ease;
+			@include forceMatrix;
 		}
 
 		&:before {
