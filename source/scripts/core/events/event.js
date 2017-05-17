@@ -25,6 +25,8 @@ el.core.events.event = {
   PLAY_VIDEO                   : 'event.play.video',
   LOCATION_UPDATE              : 'event.location.update',
   PAGE_VIEW                    : 'event.page.view',
+  SHOW_SECTION                 : 'event.show.section',
+  SHOW_SIBLING_SECTION         : 'event.show.sibling.section',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };

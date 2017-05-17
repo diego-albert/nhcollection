@@ -8933,6 +8933,8 @@ el.core.events.event = {
   PLAY_VIDEO                   : 'event.play.video',
   LOCATION_UPDATE              : 'event.location.update',
   PAGE_VIEW                    : 'event.page.view',
+  SHOW_SECTION                 : 'event.show.section',
+  SHOW_SIBLING_SECTION         : 'event.show.sibling.section',
 
   WATCHER_ENTER                : 'event.watcher.enter'
 };
@@ -9439,16 +9441,18 @@ site.components.MainMenuComponent = el.core.utils.class.extend(function(options)
   console.log(this.name, this.options);
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeMainMenu, this));
-  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._init,this));
+  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._initHeader,this));
+  el.core.events.globalDispatcher.on(el.core.events.event.SHOW_SECTION, $.proxy(this._showSectionMenu,this));
   this.$el.on('click', $.proxy(this._triggerMenuPosition, this));
 
 
 }, site.components.BaseComponent);
 
 
-site.components.MainMenuComponent.prototype._init = function(data) {
+site.components.MainMenuComponent.prototype._initHeader = function(data) {
 
   var pageView = data.page_view;
+  return;
 
   switch(pageView) {
 
@@ -9506,10 +9510,35 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 
   }
 
+}
+
+site.components.MainMenuComponent.prototype._showSectionMenu = function(e) {
+
+  var section = e.section;
+
+  switch(section) {
+
+    case 'feel-beyond':
+        this.menuEnable = true;
+        this.$el.removeClass('basic');
+        this.$el.find('.section-item').on('click', $.proxy(this._openSiblings, this));
+        break;
+
+  }
 
 }
 
-site.components.MainMenuComponent.prototype.destroy = function() {
+site.components.MainMenuComponent.prototype._openSiblings = function(e) {
+
+  var target = $(e.currentTarget),
+      action = target.data('action'),
+      videoId = target.data('yt-id');
+
+  el.core.events.globalDispatcher.emit(el.core.events.event.SHOW_SIBLING_SECTION, {'action' : action, 'videoId' : videoId });
+
+}
+
+site.components.MainMenuComponent.prototype.destroy = function(e) {
 
   this.parent.destroy.call(this);
 }
@@ -9721,6 +9750,8 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   this.$slideItem.on('click', $.proxy(this._displaySubSection, this) );
   this.$playVideoBtn.on('click', $.proxy(this._displaySubSection, this) );
 
+  el.core.events.globalDispatcher.on(el.core.events.event.SHOW_SIBLING_SECTION, $.proxy(this._displaySubSection, this));
+
 }, site.components.BaseComponent);
 
 site.components.SectionSliderNavigation.prototype._init = function(e) {
@@ -9755,10 +9786,19 @@ site.components.SectionSliderNavigation.prototype._displaySubSection = function(
   var target = $(e.currentTarget),
       action = target.data('action');
 
-      console.log('_displaySubSection', action);
+      // console.log('_displaySubSection', action);
+      console.log('_displaySubSection', e);
 
+  if (e.eventType === 'event.show.sibling.section'){ // If event comes from MainMenu
 
-  if (action == 'play-video') {
+    el.core.events.globalDispatcher.emit(el.core.events.event.PLAY_VIDEO, {'videoId' : e.videoId});
+    $('.feel-beyond-section').velocity({
+      opacity: 0,
+      top: 20,
+      zIndex: -1,
+    });
+
+  } else if (action == 'play-video') {
 
     var videoId = target.data('yt-id');
 
@@ -9768,6 +9808,8 @@ site.components.SectionSliderNavigation.prototype._displaySubSection = function(
     }
 
   } else if ('open-section') {
+
+    el.core.events.globalDispatcher.emit(el.core.events.event.SHOW_SECTION, {'section' : target.data('section') });
 
     $('.'+target.data('section')+'-section').css('z-index',5).velocity({
       opacity: 1,
@@ -9785,7 +9827,7 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
       currentSlide = this.$slider.slick('slickCurrentSlide'),
       totalSlides = this.$slider.slick("getSlick").slideCount;
 
-  console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
+  // console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
 
   // console.log( '++++', this.enableSlider );
 

@@ -34,6 +34,8 @@ site.components.SectionSliderNavigation = el.core.utils.class.extend(function(op
   this.$slideItem.on('click', $.proxy(this._displaySubSection, this) );
   this.$playVideoBtn.on('click', $.proxy(this._displaySubSection, this) );
 
+  el.core.events.globalDispatcher.on(el.core.events.event.SHOW_SIBLING_SECTION, $.proxy(this._displaySubSection, this));
+
 }, site.components.BaseComponent);
 
 site.components.SectionSliderNavigation.prototype._init = function(e) {
@@ -68,10 +70,19 @@ site.components.SectionSliderNavigation.prototype._displaySubSection = function(
   var target = $(e.currentTarget),
       action = target.data('action');
 
-      console.log('_displaySubSection', action);
+      // console.log('_displaySubSection', action);
+      console.log('_displaySubSection', e);
 
+  if (e.eventType === 'event.show.sibling.section'){ // If event comes from MainMenu
 
-  if (action == 'play-video') {
+    el.core.events.globalDispatcher.emit(el.core.events.event.PLAY_VIDEO, {'videoId' : e.videoId});
+    $('.feel-beyond-section').velocity({
+      opacity: 0,
+      top: 20,
+      zIndex: -1,
+    });
+
+  } else if (action == 'play-video') {
 
     var videoId = target.data('yt-id');
 
@@ -81,6 +92,8 @@ site.components.SectionSliderNavigation.prototype._displaySubSection = function(
     }
 
   } else if ('open-section') {
+
+    el.core.events.globalDispatcher.emit(el.core.events.event.SHOW_SECTION, {'section' : target.data('section') });
 
     $('.'+target.data('section')+'-section').css('z-index',5).velocity({
       opacity: 1,
@@ -98,7 +111,7 @@ site.components.SectionSliderNavigation.prototype._scrollToSlide = function(e) {
       currentSlide = this.$slider.slick('slickCurrentSlide'),
       totalSlides = this.$slider.slick("getSlick").slideCount;
 
-  console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
+  // console.log('HoverSlider: ', targetSlider, 'CurrentSlider: ', currentSlide, 'SlideCount: ', this.$slider.slick("getSlick").slideCount );
 
   // console.log( '++++', this.enableSlider );
 

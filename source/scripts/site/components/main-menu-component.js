@@ -23,16 +23,18 @@ site.components.MainMenuComponent = el.core.utils.class.extend(function(options)
   console.log(this.name, this.options);
 
   el.core.events.globalDispatcher.on(el.core.events.event.RESIZE, $.proxy(this._resizeMainMenu, this));
-  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._init,this));
+  el.core.events.globalDispatcher.on(el.core.events.event.PAGE_VIEW, $.proxy(this._initHeader,this));
+  el.core.events.globalDispatcher.on(el.core.events.event.SHOW_SECTION, $.proxy(this._showSectionMenu,this));
   this.$el.on('click', $.proxy(this._triggerMenuPosition, this));
 
 
 }, site.components.BaseComponent);
 
 
-site.components.MainMenuComponent.prototype._init = function(data) {
+site.components.MainMenuComponent.prototype._initHeader = function(data) {
 
   var pageView = data.page_view;
+  return;
 
   switch(pageView) {
 
@@ -90,10 +92,35 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 
   }
 
+}
+
+site.components.MainMenuComponent.prototype._showSectionMenu = function(e) {
+
+  var section = e.section;
+
+  switch(section) {
+
+    case 'feel-beyond':
+        this.menuEnable = true;
+        this.$el.removeClass('basic');
+        this.$el.find('.section-item').on('click', $.proxy(this._openSiblings, this));
+        break;
+
+  }
 
 }
 
-site.components.MainMenuComponent.prototype.destroy = function() {
+site.components.MainMenuComponent.prototype._openSiblings = function(e) {
+
+  var target = $(e.currentTarget),
+      action = target.data('action'),
+      videoId = target.data('yt-id');
+
+  el.core.events.globalDispatcher.emit(el.core.events.event.SHOW_SIBLING_SECTION, {'action' : action, 'videoId' : videoId });
+
+}
+
+site.components.MainMenuComponent.prototype.destroy = function(e) {
 
   this.parent.destroy.call(this);
 }

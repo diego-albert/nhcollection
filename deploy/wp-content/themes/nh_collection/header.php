@@ -55,80 +55,61 @@
         </div>
 
         <div class="section-wrapper">
-          <a href="#"> <!-- link to collectors -->
-            <span class="section-item section-parent">
-                <div class="overlay-element white">
-                  <div class="relative-wrapper">
-                    <div class="img-wrapper">
-                      <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/collectors.jpg'?>" alt="the collectors">
-                    </div>
-                    <div class="header-wrapper white">
-                      <p class="navigation--header small"><span class="pre">The</span>feelling<br /> collectors</p>
-                    </div>
-                  </div>
-                </div>
-            </span>
-          </a>
 
-          <a href="#"> <!-- link to experiences -->
-            <span class="section-item section-parent">
+
+          <span class="section-item" data-action="play-video" data-yt-id="xMotTAO2FqU">
               <div class="overlay-element white">
                 <div class="relative-wrapper">
                   <div class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/experiences.jpg'?>" alt="the experiences">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/feel-place.jpg'?>" alt="the place">
                   </div>
                   <div class="header-wrapper white">
-                    <p class="navigation--header small"><span class="pre lower">The</span>experiences</p>
+                    <p class="feel-navigation-header small">feel <span class="section">the place</span></p>
                   </div>
                 </div>
               </div>
-            </span>
-          </a>
+          </span>
 
-          <a href="#"> <!-- link to feels -->
-            <span class="section-item section-parent">
-              <div class="overlay-element white">
-                <div class="relative-wrapper">
-                  <div class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/feels.jpg'?>" alt="the feels">
-                  </div>
-                  <div class="header-wrapper white">
-                    <p class="navigation--header small"><span class="pre">The</span>feels</p>
-                  </div>
+          <span class="section-item" data-action="play-video" data-yt-id="1v7rafzqkRU">
+            <div class="overlay-element white">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/feel-inspired.jpg'?>" alt="inspired">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header small">feel <span class="section">inspired</span></p>
                 </div>
               </div>
-            </span>
-          </a>
+            </div>
+          </span>
 
-          <a href="#"> <!-- link to dictionary -->
-            <span class="section-item section-parent">
-              <div class="overlay-element white">
-                <div class="relative-wrapper">
-                  <div class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/dictionary.jpg'?>" alt="the dictionary">
-                  </div>
-                  <div class="header-wrapper white">
-                    <p class="navigation--header small"><span class="pre">The</span>dictionary</p>
-                  </div>
+          <span class="section-item" data-action="play-video" data-yt-id="moZJf5kKwsY">
+            <div class="overlay-element white">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/feel-unique.jpg'?>" alt="unique">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header small">feel <span class="section">unique</span></p>
                 </div>
               </div>
-            </span>
-          </a>
+            </div>
+          </span>
 
-          <a href="#"> <!-- link to voyages -->
-            <span class="section-item section-parent">
-              <div class="overlay-element white">
-                <div class="relative-wrapper">
-                  <div class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/voyages.jpg'?>" alt="the voyages">
-                  </div>
-                  <div class="header-wrapper white">
-                    <p class="navigation--header small"><span class="pre lower">The</span>voyages</p>
-                  </div>
+          <span class="section-item">
+            <div class="overlay-element white">
+              <div class="relative-wrapper">
+                <div class="img-wrapper">
+                  <img src="<?php echo get_template_directory_uri() . '/assets/images/main-menu/feel-beyond.jpg'?>" alt="beyond">
+                </div>
+                <div class="header-wrapper white">
+                  <p class="feel-navigation-header xs-small">feel beyond</span></p>
                 </div>
               </div>
-            </span>
-          </a>
+            </div>
+          </span>
+
+
 
         </div>
 

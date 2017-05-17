@@ -112,6 +112,13 @@
 	&.small {
 		@include font-size(60px, 50px);
 		white-space: nowrap;
+		span.section {
+			@include font-size(18px, 24px);
+		}
+	}
+	&.xs-small {
+		@include font-size(40px, 35px);
+		white-space: nowrap;
 	}
 	@media (max-width: $BREAKPOINT_L) {
 		@include font-size(70px, 58px);
