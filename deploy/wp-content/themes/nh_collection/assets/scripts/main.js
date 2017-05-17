@@ -9458,8 +9458,14 @@ site.components.MainMenuComponent.prototype._init = function(data) {
         this.$el.addClass('disabled');
         break;
 
-    case 'feeling-collectors':
+    case 'feelingcollectors':
     case 'feels':
+        $('body').removeClass('enable-scroll');
+        this.menuEnable = false;
+        this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+        break;
+    case 'blog':
+    case 'category':
         $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
