@@ -9495,8 +9495,6 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 
   if ( this.menuEnable ) {
 
-    console.log('hello!');
-
     if (this.menuOpened) {
       this.$el.removeClass('open');
       this.$mainMenuBar.removeClass('active').find('.hamburger-icon').removeClass('open');
@@ -9543,35 +9541,6 @@ site.components.MainMenuComponent.prototype._openSiblings = function(e) {
 }
 
 site.components.MainMenuComponent.prototype.destroy = function(e) {
-
-  this.parent.destroy.call(this);
-}
-
-var site = site || {};
-
-el.core.utils.createNamespace(site, 'components')
-
-site.components.HomeViewComponent = el.core.utils.class.extend(function(options){
-
-  this.options = {
-  };
-
-  $.extend(this.options, options);
-
-  this.name = 'HomeViewComponent';
-  this.id = el.core.utils.uniqueId.get(this.name + '-');
-
-  this.$el = this.options.$el;
-
-  this._register();
-
-  // this.$introSection = this.$el.find('.intro-section');
-
-  console.log(this.name, this.options);
-
-}, site.components.BaseComponent);
-
-site.components.HomeViewComponent.prototype.destroy = function() {
 
   this.parent.destroy.call(this);
 }
@@ -10279,7 +10248,6 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
 
 // @codekit-prepend "site/components/base-component.js"
 // @codekit-prepend "site/components/main-menu-component.js"
-// @codekit-prepend "site/components/home-view-component.js"
 // @codekit-prepend "site/components/youtube-player-component.js"
 // @codekit-prepend "site/components/section-slider-navigation-component.js"
 

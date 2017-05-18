@@ -6,9 +6,7 @@
 
 <div id="homepage" class="">
 
-	<div class="homepage-mainmenu fullscreen-js"
-	data-component="home-view-component"
-	><!-- Por ahora no usamos home view comp -->
+	<div class="homepage-mainmenu fullscreen-js">
 
 	<div class="homemenu-wrapper">
 
