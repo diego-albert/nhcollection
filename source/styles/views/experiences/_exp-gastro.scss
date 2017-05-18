@@ -1,0 +1,45 @@
+#nh-collection {
+
+	#exp-gastro {
+		position: relative;
+		.main-section {
+			position: relative;
+			width: 100%;
+			height: 100%;
+
+			.intro-experience {
+
+				@include absoluteAll;
+				@include fadeHex($BLACK, 0.15);
+
+				.intro-wrapper {
+					position: relative;
+					width: 100%;
+					height: 100%;
+
+					.info-container {
+						@include absoluteTL(50%, 50%);
+						transform: translate(-50%, -50%);
+						text-align: center;
+						white-space: nowrap;
+						color: $WHITE;
+
+						.experience-icon {
+							display: block;
+							font-size: 44px;
+						}
+						.margin-bottom {
+							margin-bottom: 25px;
+						}
+					}
+				}
+
+			}
+
+
+		}
+
+	}
+
+
+}

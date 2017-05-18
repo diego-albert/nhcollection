@@ -23,5 +23,8 @@
 @import 'views/feeling-collectors';
 @import 'views/feels';
 @import 'views/dictionary';
+@import 'views/_experiences';
 @import 'views/voyages'; //CSS for home.php | blog
 @import 'views/single'; // CSS for single post
+
+@import 'views/experiences/_exp-gastro';

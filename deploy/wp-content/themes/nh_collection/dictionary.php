@@ -1,3 +1,8 @@
+<?php
+/**
+* Template Name: Dictionary View
+*/
+?>
 
 <?php get_header(); ?>
 
