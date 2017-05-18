@@ -45,6 +45,7 @@ site.components.MainMenuComponent.prototype._initHeader = function(data) {
 
     case 'feelingcollectors':
     case 'feels':
+    case 'experiences':
         $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
@@ -54,6 +55,11 @@ site.components.MainMenuComponent.prototype._initHeader = function(data) {
         $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+        break;
+
+    case 'gastrohotels':
+        $('body').removeClass('enable-scroll');
+        this.menuEnable = true;
         break;
 
     default: // Blog section
