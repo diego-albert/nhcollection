@@ -53,9 +53,9 @@
 			padding: 0 35px;
 			overflow: hidden;
 			overflow-y: auto;
-			@media (max-height: 760px) {
-				padding: 0 20px 0 35px; // Hide scroll bar
-			}
+			// @media (max-height: 760px) {
+			// 	padding: 0 20px 0 35px; // Hide scroll bar
+			// }
 
 			.section-item {
 				display: block;

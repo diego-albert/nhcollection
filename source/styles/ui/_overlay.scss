@@ -28,6 +28,16 @@
 			opacity: 0.85;
 			transition: width $BTN_HOVER_TRANSITION $BTN_HOVER_TRANSITION*0.25 ease-in;
 		}
+		@media screen and (max-aspect-ratio: 16/9) {
+			&:before {
+				transform: skew(18deg);
+			}
+		}
+		@media all and (orientation: portrait){
+			&:before {
+				transform: skew(0);
+			}
+		}
 
 		.img-wrapper {
 			position: relative;

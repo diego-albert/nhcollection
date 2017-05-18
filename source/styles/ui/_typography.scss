@@ -57,6 +57,7 @@
 .navigation--header {
 	@extend %chronicle-semibold-font;
 	@include font-size(70px, 60px);
+	white-space: nowrap;
 	font-weight: normal;
 
 	span.pre {
