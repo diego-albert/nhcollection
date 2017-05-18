@@ -77,8 +77,6 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 
   if ( this.menuEnable ) {
 
-    console.log('hello!');
-
     if (this.menuOpened) {
       this.$el.removeClass('open');
       this.$mainMenuBar.removeClass('active').find('.hamburger-icon').removeClass('open');
