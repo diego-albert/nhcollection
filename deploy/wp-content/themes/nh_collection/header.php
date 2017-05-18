@@ -57,7 +57,7 @@
         <div class="section-wrapper">
 
 
-          <span class="section-item" data-action="play-video" data-yt-id="xMotTAO2FqU">
+          <span class="section-item playsection-js" data-action="play-video" data-yt-id="xMotTAO2FqU">
               <div class="overlay-element white">
                 <div class="relative-wrapper">
                   <div class="img-wrapper">
@@ -70,7 +70,7 @@
               </div>
           </span>
 
-          <span class="section-item" data-action="play-video" data-yt-id="1v7rafzqkRU">
+          <span class="section-item playsection-js" data-action="play-video" data-yt-id="1v7rafzqkRU">
             <div class="overlay-element white">
               <div class="relative-wrapper">
                 <div class="img-wrapper">
@@ -83,7 +83,7 @@
             </div>
           </span>
 
-          <span class="section-item" data-action="play-video" data-yt-id="moZJf5kKwsY">
+          <span class="section-item playsection-js" data-action="play-video" data-yt-id="moZJf5kKwsY">
             <div class="overlay-element white">
               <div class="relative-wrapper">
                 <div class="img-wrapper">

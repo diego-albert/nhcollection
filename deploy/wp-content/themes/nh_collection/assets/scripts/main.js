@@ -9452,7 +9452,6 @@ site.components.MainMenuComponent = el.core.utils.class.extend(function(options)
 site.components.MainMenuComponent.prototype._initHeader = function(data) {
 
   var pageView = data.page_view;
-  return;
 
   switch(pageView) {
 
@@ -9496,6 +9495,8 @@ site.components.MainMenuComponent.prototype._triggerMenuPosition = function(e) {
 
   if ( this.menuEnable ) {
 
+    console.log('hello!');
+
     if (this.menuOpened) {
       this.$el.removeClass('open');
       this.$mainMenuBar.removeClass('active').find('.hamburger-icon').removeClass('open');
@@ -9521,7 +9522,7 @@ site.components.MainMenuComponent.prototype._showSectionMenu = function(e) {
     case 'feel-beyond':
         this.menuEnable = true;
         this.$el.removeClass('basic');
-        this.$el.find('.section-item').on('click', $.proxy(this._openSiblings, this));
+        this.$el.find('.section-item.playsection-js').on('click', $.proxy(this._openSiblings, this));
         break;
 
   }
@@ -9535,6 +9536,9 @@ site.components.MainMenuComponent.prototype._openSiblings = function(e) {
       videoId = target.data('yt-id');
 
   el.core.events.globalDispatcher.emit(el.core.events.event.SHOW_SIBLING_SECTION, {'action' : action, 'videoId' : videoId });
+
+  // Disable menu
+  this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
 
 }
 
