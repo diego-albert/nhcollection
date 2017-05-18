@@ -9463,6 +9463,7 @@ site.components.MainMenuComponent.prototype._initHeader = function(data) {
 
     case 'feelingcollectors':
     case 'feels':
+    case 'experiences':
         $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
@@ -9472,6 +9473,11 @@ site.components.MainMenuComponent.prototype._initHeader = function(data) {
         $('body').removeClass('enable-scroll');
         this.menuEnable = false;
         this.$el.addClass('basic').find('.vertical-button.go-home').removeClass('inverted');// Only display go-home btn
+        break;
+
+    case 'gastrohotels':
+        $('body').removeClass('enable-scroll');
+        this.menuEnable = true;
         break;
 
     default: // Blog section
@@ -9876,6 +9882,59 @@ site.components.SectionSliderNavigation.prototype.destroy = function(e) {
 
 var site = site || {};
 
+el.core.utils.createNamespace(site, 'components')
+
+site.components.ExpGastroComponent = el.core.utils.class.extend(function(options){
+
+  this.options = {
+
+  };
+
+  $.extend(this.options, options);
+
+  this.name = 'ExpGastroComponent';
+  this.id = el.core.utils.uniqueId.get(this.name + '-');
+
+  this.$el = this.options.$el;
+  this.$introSection = this.$el.find('.intro-experience');
+
+  this._register();
+  this.init();
+
+  console.log(this.name, this.options);
+
+}, site.components.BaseComponent);
+
+
+site.components.ExpGastroComponent.prototype.init = function(e) {
+
+	  var startBtn = this.$introSection.find('.start-experience.block-button');
+	  startBtn.on('click', $.proxy(this._startGastroExperience, this) );
+
+}
+
+site.components.ExpGastroComponent.prototype._startGastroExperience = function(e) {
+
+		this.$introSection.velocity({
+			opacity: 0,
+			top: 20
+		},{
+			display: 'none',
+		});
+
+}
+
+site.components.ExpGastroComponent.prototype.resize = function(e) {
+
+}
+
+site.components.ExpGastroComponent.prototype.destroy = function(e) {
+
+  this.parent.destroy.call(this);
+}
+
+var site = site || {};
+
 el.core.utils.createNamespace(site, 'views');
 
 site.views.Header = el.core.utils.class.extend(function(options){
@@ -10250,6 +10309,7 @@ el.core.utils.createNamespace(site, 'managers').componentsManager = (function() 
 // @codekit-prepend "site/components/main-menu-component.js"
 // @codekit-prepend "site/components/youtube-player-component.js"
 // @codekit-prepend "site/components/section-slider-navigation-component.js"
+// @codekit-prepend "site/components/exp-gastro-component.js"
 
 // @codekit-prepend "site/views/header-view.js"
 // @codekit-prepend "site/views/page-view.js"
