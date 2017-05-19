@@ -28,6 +28,7 @@
 // @codekit-prepend "site/components/youtube-player-component.js"
 // @codekit-prepend "site/components/section-slider-navigation-component.js"
 // @codekit-prepend "site/components/exp-gastro-component.js"
+// @codekit-prepend "site/components/panoramic-navigation-component.js"
 
 // @codekit-prepend "site/views/header-view.js"
 // @codekit-prepend "site/views/page-view.js"

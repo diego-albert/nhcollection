@@ -11,6 +11,7 @@
 
 				@include absoluteAll;
 				@include fadeHex($BLACK, 0.15);
+				z-index: 3;
 
 				.intro-wrapper {
 					position: relative;
@@ -30,6 +31,45 @@
 						}
 						.margin-bottom {
 							margin-bottom: 25px;
+						}
+					}
+				}
+
+			}
+
+			.kitchen-navigation {
+				width: 100%;
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+
+				.navigation-wrapper {
+					position: relative;
+					height: 100%;
+
+					.panoramic {
+						width: auto;
+						min-height: 100%;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 1;
+
+					}
+
+					.photo-item {
+						&.item1 {
+							@include absoluteTL(50%, 15%);
+							z-index: 2;
+						}
+						&.item2 {
+							@include absoluteTL(50%, 50%);
+							z-index: 2;
+						}
+						&.item3 {
+							@include absoluteTL(50%, 75%);
+							z-index: 2;
 						}
 					}
 				}
