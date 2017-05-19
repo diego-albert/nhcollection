@@ -34,10 +34,9 @@ site.components.PanoramicNavigationComponent.prototype.init = function(e) {
     this.$container.css({
         'width': this.imageWidth,
         'left' : -( (this.imageWidth - this.windowWidth)/2)
-      // }).cyclotron();
       });
 
-    this._initNavigation();
+    el.core.events.globalDispatcher.on(el.core.events.event.START_GASTRO_EXP, $.proxy(this._initNavigation, this));
 
 }
 
@@ -45,6 +44,20 @@ site.components.PanoramicNavigationComponent.prototype._initNavigation = functio
 
       var that = this;
       var sx, dx = 0, armed, tick, prev, h = [];
+
+      this.$container.find('.drag-button').velocity({
+        opacity:0
+      },{
+        'display':'none',
+        delay: 2000,
+        complete: function(){
+          that.$container.find('.photo-item').velocity({
+            opacity: 1
+          },{
+            display: 'block'
+          });
+        }
+      })
 
       that.$container.mousedown(function (e) {
         sx = e.pageX - that.offset;
@@ -132,5 +145,6 @@ site.components.PanoramicNavigationComponent.prototype.resize = function(e) {
 
 site.components.PanoramicNavigationComponent.prototype.destroy = function(e) {
 
+  this.$container.unbind();
   this.parent.destroy.call(this);
 }

@@ -28,5 +28,8 @@ el.core.events.event = {
   SHOW_SECTION                 : 'event.show.section',
   SHOW_SIBLING_SECTION         : 'event.show.sibling.section',
 
+  // EXPERIENCES
+  START_GASTRO_EXP             : 'event.start.gastro.exp',
+
   WATCHER_ENTER                : 'event.watcher.enter'
 };

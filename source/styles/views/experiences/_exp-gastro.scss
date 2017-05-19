@@ -58,7 +58,15 @@
 
 					}
 
+					.drag-button {
+						@include absoluteTL(50%, 50%);
+							z-index: 2;
+							transform: translate(-50%,-50%);
+					}
+
 					.photo-item {
+						opacity: 0;
+						display: none;
 						&.item1 {
 							@include absoluteTL(50%, 15%);
 							z-index: 2;

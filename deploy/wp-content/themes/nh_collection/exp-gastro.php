@@ -32,6 +32,14 @@
 
           <img class="panoramic" src="<?php echo get_template_directory_uri() . '/assets/images/experiences/gastro/panoramic-example.jpg';?>" alt="">
 
+          <button class="block-button drag-button">
+            <div class="arrow-wrapper">
+              <span class="icon icon-arrow_icon look-left"></span>
+              <span class="icon icon-arrow_icon"></span>
+            </div>
+            <span class="button-label">Arrastra y muévete por nuestra cocina como si fuese la tuya</span>
+          </button>
+
           <div class="photo-item item1"><button class="block-button more-button" style="margin-right:50px"><span class="icon icon-cross_icon"></span></button></div>
           <div class="photo-item item2"><button class="block-button more-button" style="margin-right:50px"><span class="icon icon-cross_icon"></span></button></div>
           <div class="photo-item item3"><button class="block-button more-button" style="margin-right:50px"><span class="icon icon-cross_icon"></span></button></div>

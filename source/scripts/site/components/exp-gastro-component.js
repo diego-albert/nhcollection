@@ -40,6 +40,8 @@ site.components.ExpGastroComponent.prototype._startGastroExperience = function(e
 			display: 'none',
 		});
 
+    el.core.events.globalDispatcher.emit(el.core.events.event.START_GASTRO_EXP);
+
 }
 
 site.components.ExpGastroComponent.prototype.resize = function(e) {
